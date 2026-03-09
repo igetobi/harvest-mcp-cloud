@@ -195,16 +195,17 @@ app.post("/mcp", async (req, res) => {
   let transport;
   if (sessionId && sessions[sessionId]) {
     transport = sessions[sessionId];
-  } else if (!sessionId && isInitializeRequest(req.body)) {
-    transport = new StreamableHTTPServerTransport({ sessionIdGenerator: () => randomUUID() });
+  } else if (isInitializeRequest(req.body)) {
+    transport = new StreamableHTTPServerTransport({
+      sessionIdGenerator: () => randomUUID(),
+      onsessioninitialized: (id) => {
+        sessions[id] = transport;
+      }
+    });
     const server = buildServer();
     await server.connect(transport);
-    transport.onclose = () => {
-      if (transport.sessionId) delete sessions[transport.sessionId];
-    };
-    sessions[transport.sessionId] = transport;
   } else {
-    res.status(400).json({ error: "Bad request" });
+    res.status(400).json({ error: "No session found" });
     return;
   }
   await transport.handleRequest(req, res, req.body);
