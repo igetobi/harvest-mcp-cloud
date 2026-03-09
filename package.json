@@ -1,11 +1,11 @@
 {
   "name": "harvest-mcp-cloud",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "main": "harvest.js",
   "scripts": { "start": "node harvest.js" },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "1.12.1",
+    "@modelcontextprotocol/sdk": "1.27.1",
     "express": "^4.18.2",
     "zod": "^3.25.0"
   }
