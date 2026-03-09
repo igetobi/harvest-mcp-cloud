@@ -38,7 +38,7 @@ async function harvestDelete(path) {
   return r.status === 204 ? { success: true } : r.json();
 }
 
-function createServer() {
+function buildServer() {
   const server = new Server(
     { name: "harvest", version: "3.0.0" },
     { capabilities: { tools: {} } }
@@ -253,38 +253,36 @@ function createServer() {
   return server;
 }
 
-// Store active transports
 const transports = {};
 
-app.get("/sse", async (req, res) => {
+// CORS middleware for all routes
+app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Headers", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept, Cache-Control");
+  if (req.method === "OPTIONS") return res.sendStatus(200);
+  next();
+});
+
+app.get("/sse", async (req, res) => {
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
   const transport = new SSEServerTransport("/messages", res);
   transports[transport.sessionId] = transport;
-  const server = createServer();
-  res.on("close", () => {
-    delete transports[transport.sessionId];
-  });
+  res.on("close", () => delete transports[transport.sessionId]);
+  const server = buildServer();
   await server.connect(transport);
 });
 
 app.post("/messages", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Headers", "*");
   const sessionId = req.query.sessionId;
   const transport = transports[sessionId];
   if (transport) {
     await transport.handlePostMessage(req, res);
   } else {
-    res.status(400).json({ error: "No transport found for sessionId" });
+    res.status(400).json({ error: "Session not found" });
   }
-});
-
-app.options("*", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "*");
-  res.sendStatus(200);
 });
 
 app.get("/", (req, res) => res.send("Harvest MCP Server running ✅"));
