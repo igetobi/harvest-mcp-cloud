@@ -253,14 +253,38 @@ function createServer() {
   return server;
 }
 
+// Store active transports
+const transports = {};
+
 app.get("/sse", async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "*");
   const transport = new SSEServerTransport("/messages", res);
+  transports[transport.sessionId] = transport;
   const server = createServer();
+  res.on("close", () => {
+    delete transports[transport.sessionId];
+  });
   await server.connect(transport);
 });
 
 app.post("/messages", async (req, res) => {
-  res.json({ status: "ok" });
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  const sessionId = req.query.sessionId;
+  const transport = transports[sessionId];
+  if (transport) {
+    await transport.handlePostMessage(req, res);
+  } else {
+    res.status(400).json({ error: "No transport found for sessionId" });
+  }
+});
+
+app.options("*", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  res.sendStatus(200);
 });
 
 app.get("/", (req, res) => res.send("Harvest MCP Server running ✅"));
