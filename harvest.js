@@ -1,7 +1,8 @@
 import express from "express";
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
-import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
+import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
+import { randomUUID } from "crypto";
 
 const app = express();
 app.use(express.json());
@@ -253,39 +254,66 @@ function buildServer() {
   return server;
 }
 
-const transports = {};
+const sessions = {};
 
-// CORS middleware for all routes
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept, Cache-Control");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS, HEAD");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, Mcp-Session-Id, Accept");
   if (req.method === "OPTIONS") return res.sendStatus(200);
   next();
 });
 
+// HEAD + GET for protocol discovery
+app.head("/mcp", (req, res) => {
+  res.setHeader("MCP-Protocol-Version", "2025-06-18");
+  res.sendStatus(200);
+});
+
+app.get("/mcp", (req, res) => {
+  const sessionId = req.headers["mcp-session-id"];
+  if (sessionId && sessions[sessionId]) {
+    sessions[sessionId].handleRequest(req, res);
+  } else {
+    res.setHeader("MCP-Protocol-Version", "2025-06-18");
+    res.status(405).setHeader("Allow", "POST").send("Use POST to initialize");
+  }
+});
+
+app.post("/mcp", async (req, res) => {
+  const sessionId = req.headers["mcp-session-id"] || randomUUID();
+  if (!sessions[sessionId]) {
+    const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: () => sessionId });
+    const server = buildServer();
+    await server.connect(transport);
+    sessions[sessionId] = transport;
+  }
+  await sessions[sessionId].handleRequest(req, res);
+});
+
+app.delete("/mcp", (req, res) => {
+  const sessionId = req.headers["mcp-session-id"];
+  if (sessionId && sessions[sessionId]) {
+    delete sessions[sessionId];
+  }
+  res.sendStatus(204);
+});
+
+// Keep SSE as fallback
 app.get("/sse", async (req, res) => {
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
   res.setHeader("Connection", "keep-alive");
+  const { SSEServerTransport } = await import("@modelcontextprotocol/sdk/server/sse.js");
   const transport = new SSEServerTransport("/messages", res);
-  transports[transport.sessionId] = transport;
-  res.on("close", () => delete transports[transport.sessionId]);
   const server = buildServer();
   await server.connect(transport);
 });
 
-app.post("/messages", async (req, res) => {
-  const sessionId = req.query.sessionId;
-  const transport = transports[sessionId];
-  if (transport) {
-    await transport.handlePostMessage(req, res);
-  } else {
-    res.status(400).json({ error: "Session not found" });
-  }
+app.get("/", (req, res) => {
+  res.setHeader("MCP-Protocol-Version", "2025-06-18");
+  res.send("Harvest MCP Server running ✅");
 });
-
-app.get("/", (req, res) => res.send("Harvest MCP Server running ✅"));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
