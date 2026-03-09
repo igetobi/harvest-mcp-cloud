@@ -1,6 +1,6 @@
 {
   "name": "harvest-mcp-cloud",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "harvest.js",
   "scripts": { "start": "node harvest.js" },
