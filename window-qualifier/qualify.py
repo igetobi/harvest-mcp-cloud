@@ -37,6 +37,11 @@ from bs4 import BeautifulSoup
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+BROWSER_HEADERS = {
+    "User-Agent": UA,
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
 TIMEOUT = 15
 MAX_PAGES = 4          # homepage + up to 3 promising internal pages
 CACHE_DIR = "cache"
@@ -76,6 +81,17 @@ VEHICLE = re.compile(
     r'(windshield|auto glass|automotive glass|vehicle glass|car window|'
     r'side mirror|rock chip|adas calibration)', re.I)
 
+# Window wording that refers to a vehicle, not a building.
+VEHICLE_WINDOW = re.compile(
+    r'((side|quarter|vent|back|rear|door)\s+(window|glass)|windshield|'
+    r'auto\s+glass|mobile\s+glass|adas)', re.I)
+
+# Wording that anchors window work to a building rather than a vehicle.
+BUILDING_CONTEXT = re.compile(
+    r'(residential|commercial|home ?owner|homes?\b|house|property|storefront|'
+    r'patio door|siding|energy[- ]efficient|hoa|kitchen|bathroom|remodel|'
+    r'new construction|curb appeal|hurricane|impact window)', re.I)
+
 # Services that look window-ish but are not installation or repair.
 NEGATIVE_ONLY = [
     (r'window clean|window wash|squeegee|pressure wash|power wash', 'window cleaning'),
@@ -85,6 +101,10 @@ NEGATIVE_ONLY = [
 ]
 
 SENTENCE = re.compile(r'[^.!?\n]{0,180}[.!?]')
+
+# Google's own image/asset hosts appear in the export alongside real websites.
+ASSET_HOST = re.compile(
+    r'(googleusercontent|gstatic|googleapis|ggpht|google\.com/maps|schema\.org)', re.I)
 
 
 def cache_path(domain: str) -> str:
@@ -126,10 +146,15 @@ def fetch_site(domain: str, session: requests.Session) -> dict:
     """Fetch a site's homepage plus a few service pages. Returns a cacheable dict."""
     out = {"domain": domain, "ok": False, "status": None, "pages": [], "text": "", "error": ""}
     base = None
-    for scheme in ("https://", "http://"):
+    # Many small-business sites only answer on www, or only over http, and some
+    # reject a bare requests UA. Try the realistic combinations before giving up.
+    bare = domain[4:] if domain.startswith("www.") else domain
+    candidates = [f"https://{bare}", f"https://www.{bare}",
+                  f"http://{bare}", f"http://www.{bare}"]
+    for url in candidates:
         try:
-            r = session.get(scheme + domain, timeout=TIMEOUT,
-                            headers={"User-Agent": UA}, allow_redirects=True)
+            r = session.get(url, timeout=TIMEOUT, headers=BROWSER_HEADERS,
+                            allow_redirects=True)
             out["status"] = r.status_code
             if r.status_code < 400 and r.text:
                 base, home = r.url, r.text
@@ -141,9 +166,13 @@ def fetch_site(domain: str, session: requests.Session) -> dict:
 
     texts = [visible_text(home)]
     out["pages"].append(base)
+    seen_pages = {base.rstrip("/")}
     for url in pick_links(home, base, MAX_PAGES - 1):
+        if url.rstrip("/") in seen_pages:
+            continue
+        seen_pages.add(url.rstrip("/"))
         try:
-            r = session.get(url, timeout=TIMEOUT, headers={"User-Agent": UA})
+            r = session.get(url, timeout=TIMEOUT, headers=BROWSER_HEADERS)
             if r.status_code < 400 and r.text:
                 texts.append(visible_text(r.text))
                 out["pages"].append(url)
@@ -172,6 +201,15 @@ def quote_for(text: str, pattern: str) -> str:
     return re.sub(r'\s+', ' ', snippet).strip()[:220]
 
 
+def first_negative_quote(text: str) -> str:
+    """Quote whichever excluded service actually appears, not merely the first rule."""
+    for pat, _ in NEGATIVE_ONLY:
+        q = quote_for(text, pat)
+        if q:
+            return q
+    return ""
+
+
 def judge(text: str) -> dict:
     """Decide from site text alone. Returns verdict, evidence and matched signals."""
     hits = [(label, pat) for pat, label in POSITIVE if re.search(pat, text, re.I)]
@@ -185,6 +223,28 @@ def judge(text: str) -> dict:
                 "note": "site returned little or no readable text"}
 
     if hits:
+        # A cleaning or blinds company will mention windows constantly and may still
+        # say "prevent premature window replacement" once in its marketing copy.
+        # Weigh how often each trade is named, not merely whether it appears.
+        pos_n = sum(len(re.findall(p, text, re.I)) for p, _ in POSITIVE)
+        neg_n = sum(len(re.findall(p, text, re.I)) for p, _ in NEGATIVE_ONLY)
+        veh_n = len(VEHICLE_WINDOW.findall(text))
+        bld_n = len(BUILDING_CONTEXT.findall(text))
+
+        # An auto glass shop advertises "side window replacement" and "door glass".
+        # Those match building-window wording, so require the site to actually talk
+        # about buildings before crediting it. Shops doing both still pass.
+        if veh_n >= 3 * max(bld_n, 1):
+            return {"verdict": "NO", "evidence": quote_for(text, VEHICLE_WINDOW.pattern),
+                    "signals": "vehicle glass", "vehicle": True,
+                    "note": f"vehicle glass shop ({veh_n} vehicle-window mentions "
+                            f"vs {bld_n} building references)"}
+        if neg_n >= 3 * max(pos_n, 1):
+            return {"verdict": "NO", "evidence": first_negative_quote(text),
+                    "signals": "; ".join(negs), "vehicle": vehicle,
+                    "note": f"predominantly {negs[0] if negs else 'non-install'} "
+                            f"({neg_n} mentions vs {pos_n} install/repair)"}
+
         # Distinguish real window work from a passing mention on an unrelated site.
         strong = [l for l, p in hits if l in (
             'window replacement/installation', 'replacement windows', 'windows & doors',
@@ -203,7 +263,7 @@ def judge(text: str) -> dict:
                 "signals": "vehicle glass only", "vehicle": True,
                 "note": "vehicle glass, no building-window work found"}
     if negs:
-        return {"verdict": "NO", "evidence": quote_for(text, NEGATIVE_ONLY[0][0]),
+        return {"verdict": "NO", "evidence": first_negative_quote(text),
                 "signals": "; ".join(negs), "vehicle": False,
                 "note": "window-adjacent service that is not installation or repair"}
     return {"verdict": "NO", "evidence": "", "signals": "", "vehicle": False,
@@ -221,7 +281,7 @@ def load_companies(path: str) -> list[dict]:
             if not any(c.strip() for c in row):
                 continue
             iu = next((i for i, c in enumerate(row)
-                       if c.startswith("http") and "googleusercontent" not in c), None)
+                       if c.startswith("http") and not ASSET_HOST.search(c)), None)
             ip = next((i for i, c in enumerate(row) if phone.match(c or "")), None)
             ia = next((i for i, c in enumerate(row) if addr.search(c or "")), None)
             end = min([x for x in (ip, ia, iu) if x is not None], default=1)
