@@ -42,6 +42,16 @@ BROWSER_HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
 }
+FULL_HEADERS = {
+    **{"User-Agent": UA,
+       "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,"
+                 "image/webp,*/*;q=0.8",
+       "Accept-Language": "en-US,en;q=0.9",
+       "Accept-Encoding": "gzip, deflate, br",
+       "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate",
+       "Sec-Fetch-Site": "none", "Sec-Fetch-User": "?1",
+       "Upgrade-Insecure-Requests": "1", "Connection": "keep-alive"},
+}
 TIMEOUT = 15
 MAX_PAGES = 4          # homepage + up to 3 promising internal pages
 CACHE_DIR = "cache"
@@ -103,6 +113,10 @@ NEGATIVE_ONLY = [
 SENTENCE = re.compile(r'[^.!?\n]{0,180}[.!?]')
 
 # Google's own image/asset hosts appear in the export alongside real websites.
+NOT_A_COMPANY_SITE = re.compile(
+    r'^(www\.)?(instagram|facebook|m\.facebook|twitter|x|linkedin|yelp|nextdoor|'
+    r'business\.site|sites\.google|linktr\.ee|rymap)\.(com|org|ee)$', re.I)
+
 ASSET_HOST = re.compile(
     r'(googleusercontent|gstatic|googleapis|ggpht|google\.com/maps|schema\.org)', re.I)
 
@@ -114,9 +128,17 @@ def cache_path(domain: str) -> str:
 
 def visible_text(html: str) -> str:
     soup = BeautifulSoup(html, "html.parser")
+    head_bits = []
+    if soup.title and soup.title.string:
+        head_bits.append(soup.title.string)
+    for name in ("description", "og:description", "og:title", "keywords"):
+        tag = (soup.find("meta", attrs={"name": name})
+               or soup.find("meta", attrs={"property": name}))
+        if tag and tag.get("content"):
+            head_bits.append(tag["content"])
     for tag in soup(["script", "style", "noscript", "svg"]):
         tag.decompose()
-    return re.sub(r'\s+', ' ', soup.get_text(" "))
+    return re.sub(r'\s+', ' ', " . ".join(head_bits) + " . " + soup.get_text(" "))
 
 
 def pick_links(html: str, base: str, limit: int) -> list[str]:
@@ -152,15 +174,27 @@ def fetch_site(domain: str, session: requests.Session) -> dict:
     candidates = [f"https://{bare}", f"https://www.{bare}",
                   f"http://{bare}", f"http://www.{bare}"]
     for url in candidates:
-        try:
-            r = session.get(url, timeout=TIMEOUT, headers=BROWSER_HEADERS,
-                            allow_redirects=True)
-            out["status"] = r.status_code
-            if r.status_code < 400 and r.text:
-                base, home = r.url, r.text
+        # Certificate verification stays on. The agent proxy terminates TLS, so
+        # disabling it would unverify the proxy hop, which this environment forbids.
+        for headers in (BROWSER_HEADERS, FULL_HEADERS):
+            try:
+                r = session.get(url, timeout=TIMEOUT, headers=headers,
+                                allow_redirects=True)
+                out["status"] = r.status_code
+                if r.status_code < 400 and r.text:
+                    base, home = r.url, r.text
+                    break
+                if r.status_code != 403:
+                    break        # a real 404/500 will not improve with more headers
+            except requests.exceptions.SSLError as e:
+                out["error"] = ("SSLError (bad/expired certificate; not retried "
+                                "without verification by policy)")
                 break
-        except requests.RequestException as e:
-            out["error"] = f"{type(e).__name__}: {str(e)[:120]}"
+            except requests.RequestException as e:
+                out["error"] = f"{type(e).__name__}: {str(e)[:120]}"
+                break
+        if base is not None:
+            break
     if base is None:
         return out
 
@@ -334,6 +368,13 @@ def main() -> int:
         return session_local.s
 
     def work(c: dict) -> dict:
+        if NOT_A_COMPANY_SITE.match(c["domain"]):
+            with lock:
+                done[0] += 1
+            return {**c, "verdict": "SOCIAL_ONLY", "window_services": "",
+                    "also_vehicle_glass": False, "evidence": "",
+                    "note": "listing points at a social or directory profile, not a site",
+                    "pages_checked": ""}
         path = cache_path(c["domain"])
         if os.path.exists(path):
             with open(path) as fh:
