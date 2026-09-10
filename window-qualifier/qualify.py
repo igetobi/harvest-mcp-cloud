@@ -244,7 +244,14 @@ def first_negative_quote(text: str) -> str:
     return ""
 
 
+UI_BOILERPLATE = re.compile(
+    r'(opens?\s+in\s+a\s+new\s+(window|tab)[^.]{0,12}|in\s+a\s+new\s+browser\s+window|'
+    r'new\s+window\s*/\s*tab)', re.I)
+
+
 def judge(text: str) -> dict:
+    # Link accessibility text, not a service offering.
+    text = UI_BOILERPLATE.sub(" ", text or "")
     """Decide from site text alone. Returns verdict, evidence and matched signals."""
     hits = [(label, pat) for pat, label in POSITIVE if re.search(pat, text, re.I)]
     negs = [label for pat, label in NEGATIVE_ONLY if re.search(pat, text, re.I)]
