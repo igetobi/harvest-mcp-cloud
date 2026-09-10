@@ -78,7 +78,8 @@ POSITIVE = [
     (r'windows? (and|&) doors?', 'windows & doors'),
     (r'(install|replace|replacing)\w* (new )?windows?', 'installs/replaces windows'),
     (r'(double|triple|single)[- ]pane', 'pane glazing work'),
-    (r'(insulated glass|igu|thermal pane|foggy window|failed seal)', 'insulated glass unit work'),
+    (r'\b(insulated glass|igus?|thermal pane|foggy window|failed seal)\b',
+     'insulated glass unit work'),
     (r'(storefront|curtain wall|commercial glazing|glazier)', 'commercial storefront glazing'),
     (r'broken window (glass|repair|replacement)', 'broken window glass'),
     (r'(casement|double[- ]hung|single[- ]hung|awning|bay window|bow window|picture window|slider window)',
@@ -224,15 +225,17 @@ def quote_for(text: str, pattern: str) -> str:
     m = re.search(pattern, text, re.I)
     if not m:
         return ""
-    start = max(0, m.start() - 90)
-    snippet = text[start:m.end() + 90]
     matched = m.group(0).lower()
+    # keep the matched phrase inside the snippet even after the length cap
+    pad = max(20, (200 - (m.end() - m.start())) // 2)
+    start = max(0, m.start() - pad)
+    snippet = text[start:m.end() + pad]
     # The quote must contain the phrase that triggered the verdict, or it cannot be
     # audited. Fall back to a window around the match rather than any long sentence.
     for s in SENTENCE.findall(snippet):
         if matched in s.lower():
             return re.sub(r'\s+', ' ', s).strip()[:220]
-    return re.sub(r'\s+', ' ', snippet).strip()[:220]
+    return re.sub(r'\s+', ' ', snippet).strip()[:240]
 
 
 def first_negative_quote(text: str) -> str:
@@ -314,7 +317,7 @@ def judge(text: str) -> dict:
 def load_companies(path: str) -> list[dict]:
     """Read the export. Company names contain commas and spill across columns, and
     there is no header row, so fields are located by shape rather than position."""
-    phone = re.compile(r'^\+?1[\s\-]?\d{3}')
+    phone = re.compile(r'^\+?1?[\s\-.]*\(?\d{3}\)?[\s\-.]+\d{3}[\s\-.]+\d{4}\s*$')
     addr = re.compile(r',\s*[A-Z]{2}\s*\d{5}')
     out = []
     with open(path, encoding="utf-8", errors="replace") as fh:
