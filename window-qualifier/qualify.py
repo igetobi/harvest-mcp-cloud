@@ -80,7 +80,9 @@ POSITIVE = [
     (r'(double|triple|single)[- ]pane', 'pane glazing work'),
     (r'\b(insulated glass|igus?|thermal pane|foggy window|failed seal)\b',
      'insulated glass unit work'),
-    (r'(storefront|curtain wall|commercial glazing|glazier)', 'commercial storefront glazing'),
+    (r'((store\s?front)\s+(glass|window|door|system|glazing|framing|install\w*|repair)|'
+     r'(glass|aluminum|commercial)\s+store\s?front|curtain\s?wall|commercial glazing|'
+     r'\bglazier\b)', 'commercial storefront glazing'),
     (r'broken window (glass|repair|replacement)', 'broken window glass'),
     (r'(casement|double[- ]hung|single[- ]hung|awning|bay window|bow window|picture window|slider window)',
      'named window styles'),
