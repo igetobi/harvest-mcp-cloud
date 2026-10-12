@@ -1,0 +1,53 @@
+304	MAYBE	insurance restoration GC	restore/rebuild homes via insurance claims; roofing systems listed but no roofing trade stated
+305	NO	building envelope consultant	roofing and waterproofing advisory, drone assessments; specifies, does not install
+306	NO	building materials	commercial roof and wall insulation supplier
+307	NO	manufacturer (fasteners)	German fastening-technology manufacturer; US address "Twist, Arkansas" is bad data
+308	NO	metal fabricator	custom metal fabrication incl. roof accessories; not a roofing contractor
+309	UNCLEAR	unknown	no industry, keywords or description in the export; roofing name and domain only
+310	NO	manufacturer/supplier	engineers, manufactures and supplies roofing and waterproofing membranes
+312	NO	supplier	roofing underlayment, building wraps, geotextiles
+313	MAYBE	metal fabrication + roofing	"metal building envelope and roofing specialist"; unclear whether they install
+314	MAYBE	solar engineering + roofing	1-person engineering firm offering solar and roofing services
+315	NO	manufacturer/supplier	steel and metal construction products: roof panels, decking, trim
+318	NO	supplier	supplier of metal roof, siding and flashing products
+319	NO	roof cleaning	roof and house soft washing only
+320	NO	inspection/expert reports	roofing and engineering reports for disputed insurance claims
+321	MAYBE	environmental abatement	asbestos, mold and lead abatement; roofing only in keywords
+322	YES	roofing contractor	description is spun SEO text ("professional roofer in Ohio" for a Virginia company) - verify the business is real
+323	NO	estimating/claims service	Xactimate estimating and claims management for contractors
+324	NO	distributor	wholesale lumber and building materials distributor
+325	NO	roof cleaning	roof, house and exterior surface cleaning
+327	YES	roofing contractor	Apollo tags the industry as marketing/advertising, almost certainly a mislabel; SIC 1761 / NAICS 23816
+328	NO	manufacturer	roof curb manufacturer for HVAC
+333	NO	manufacturer rep	independent sales rep firm for building materials
+334	MAYBE	property inspection/maintenance	inspection and maintenance company; roof replacement in keywords only
+335	NO	manufacturer/supplier	steel roofing panels sold through an installer network
+336	NO	lead generation	paid-lead agency; roofing is one vertical among cosmetic-surgery clients
+337	NO	railing contractor	exterior railings and guardrails
+338	NO	distributor	wholesale lumber, steel and building products
+339	NO	equipment manufacturer	manufactures commercial roofing equipment and safety gear
+341	NO	distributor	wholesale roofing and waterproofing membrane products
+342	NO	manufacturer	manufactures roofing and waterproofing membranes
+343	NO	manufacturer	manufactures roof, wall and floor coatings and sealants
+345	NO	estimating service	estimates, supplements and invoicing for roofing companies
+346	NO	certification body	third-party product certification for building envelopes
+347	NO	building materials	pole building kits, metal roofing and construction materials
+349	NO	metal supply	in-stock pipe, tube, steel and metal roofing supply
+351	UNCLEAR	data mismatch	.co.uk website against a North Carolina address; no keywords or description
+355	MAYBE	roof rejuvenation	Roof Maxx dealer - plant-based rejuvenating spray treatment
+365	YES	roof repair/management	commercial roof repair, inspections and maintenance plans
+367	NO	manufacturer rep	roofing manufacturers' representative agency
+369	UNCLEAR	data mismatch	maxroofing.co.uk against a Spring, Texas address; industry tagged semiconductors
+370	MAYBE	building materials	industry and keywords say wholesale building materials; name says roofing design
+371	UNCLEAR	data mismatch	a1roofing.com.au against a South Carolina address; industry tagged photography
+375	YES	roofing contractor	description is for a Maine roofing and siding contractor but the address is Los Angeles - verify which is right
+376	NO	manufacturer/supplier	post-frame building materials manufacturer, steel roofing and trusses
+377	NO	supplier	sells residential and commercial metal roofing and siding
+380	UNCLEAR	data mismatch	website is trexdealers.com, a decking dealer locator, not this company
+388	UNCLEAR	likely not a contractor	name suggests roofing sales/training; no keywords, codes or description
+411	YES	roofing contractor	description is a shared call-centre template also used by rows 421 and 425 - verify the business is independent
+413	UNCLEAR	data mismatch	laytonroofing.co.uk, a Worcester UK roofer, against Worcester, Massachusetts
+421	MAYBE	metal roofing supply	name says metal roofing supply; description is the same shared call-centre template as rows 411 and 425
+425	YES	roofing contractor	description is a shared call-centre template also used by rows 411 and 421
+427	YES	roofing contractor	description describes a Northeast Ohio contractor; address is Indianapolis - verify
+450	YES	roofing contractor	description reads "Lakey Roofing" - source data appears mixed up

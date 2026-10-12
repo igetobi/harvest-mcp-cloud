@@ -1,0 +1,14 @@
+154	YES	solar/HVAC-led + roofing	"solar, HVAC, and roofing for both residential and commercial"
+159	MAYBE	solar-led	solar installer; "roofing services" in keywords but keyword field also polluted with restaurant terms
+185	NO	solar only	renewable energy / solar installation, no roofing service
+187	NO	solar only	solar panel systems and energy storage
+205	MAYBE	facade/exterior restoration	masonry, facade, waterproofing; 238160 code but no roofing service named
+223	MAYBE	framing/multi-trade exterior	framing-led general contracting; 238160 code, roofing not named
+224	NO	franchisor	sells roofing/exterior franchises and leads; does not perform roofing itself
+241	NO	solar only	rooftop solar energy and battery storage
+243	NO	roofing consultant	"roofing and waterproofing consulting firm" - specifies and inspects, does not install
+273	YES	roof coatings/cleaning	roof coating process and roof repair; coating-led rather than replacement
+274	NO	trucking/aggregates	trucking, hauling, fleet, construction materials
+275	MAYBE	roof asset management	coordinates inspections, maintenance and replacement for multi-site owners rather than performing it
+300	MAYBE	senior-living general contractor	238160 code but roofing not among stated services
+293	NO	solar only	solar installation and repair

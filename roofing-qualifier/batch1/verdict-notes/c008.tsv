@@ -1,0 +1,31 @@
+1041	NO	lead generation	"we connect you directly with top-rated roofing, solar, and home service providers"
+1042	NO	manufacturer	UV-activated sealant repair patch for roof and structural repairs
+1045	NO	visualization service	virtual home, kitchen and bathroom renderings
+1050	NO	estimating service	construction estimators covering roofing among other trades
+1053	YES	roofing/gutter/siding	industry and keywords tagged IT services - a mislabel
+1055	YES	roofing contractor	Fort Dodge, Iowa address, "roofing in magnolia tx" keyword and a description serving Rochester, NY - source data is mixed up
+1056	MAYBE	design-build renovation	full-scale renovations and custom kitchens; roofing one keyword
+1061	NO	metal decking subcontractor	structural floor and roof deck installation, not roof covering
+1063	NO	sheet metal fabricator	"fabrication of metal roofing supplies to the building industry"
+1072	YES	historic preservation + roofing	slate, clay tile and wood shingle roofing within historic preservation work; also consults
+1079	NO	multi-trade subcontractor	siding, windows, counters, tile; roofing not named
+1082	YES	multi-trade home services	HVAC, electrical, appliance repair and roofing
+1084	NO	solar service	maintenance and repair of existing solar PV systems
+1085	MAYBE	construction management/facilities	project planning, HVAC, facilities management; 238160 code but roofing not named
+1089	MAYBE	remodeler	home additions and kitchen/bath remodels; roofing one keyword
+1098	NO	remodeler	remodeling and general contracting; roofing not named
+1102	YES	roofing + restoration (Canada)	serves the GTA, Halton and Hamilton in Ontario; the "Oakville, California" address is bad data
+1103	NO	waterproofing/coatings	above-grade and deck waterproofing, caulking and sealants
+1105	MAYBE	roof moisture remediation	dries out wet commercial roofs rather than replacing them
+1112	MAYBE	solar-led	solar panels and batteries; roofing listed in the description tail
+1118	YES	roofing contractor	no keywords or description; website is mastercontractorservices.com - thin data
+1120	NO	manufacturer rep	commercial roofing specification and manufacturers' representation
+1127	MAYBE	renovation	high-end remodeling and property management support; roofing not named
+1140	NO	manufacturer rep	represents Division 7 roofing, insulation and waterproofing manufacturers
+1141	YES	roofing contractor	industry tagged IT services - a mislabel; description serves Casper, Wyoming but the address is Hudson, Massachusetts
+1142	NO	building envelope consultant	architectural firm doing envelope investigation and restoration design
+1143	NO	federal design-build GC	design-build construction for the US federal government; roofing not named
+1144	NO	disaster restoration	water extraction, mold and fire restoration, cleaning
+1149	MAYBE	reconstruction GC	multifamily and catastrophe reconstruction; commercial roofing in keywords
+1150	NO	manufacturer/supplier	pre-engineered metal building components and panels
+1152	NO	building envelope engineering	envelope consulting, leak investigation, expert witness

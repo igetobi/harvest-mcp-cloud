@@ -1,0 +1,38 @@
+904	YES	roofing contractor	no website in the export
+906	NO	construction supply	fasteners, nails, nailers and building materials
+909	YES	roofing contractor	website is americanshingles.com.au against an Atlanta, Georgia address - verify
+911	MAYBE	general contractor	general contracting and remodeling; roofing one keyword among many
+914	NO	manufacturer/installer (awnings)	custom metal and fabric awnings, canopies and retractable roofs
+919	NO	recycler	recycles foam board insulation and roofing membrane
+921	MAYBE	renovation/restoration contractor	capital improvement and restoration projects; roofing not named
+926	NO	equipment rental	heavy equipment and on-site housing rental
+929	YES	roofing contractor + consultant	"full service roofing contractor, specification writer, designer, consultant"
+930	UNCLEAR	unknown	description reads "Sustainable Home Construction" - source data appears mixed up; no codes or keywords
+931	NO	home energy performance	energy management, HVAC, insulation, custom homes; roofing not named
+934	NO	trade association	IIBEC chapter for building enclosure consultants
+938	NO	trade association	IIBEC chapter - association of roof consultants, architects and engineers
+947	MAYBE	emergency board-up/tarping	window board-up, roof tarping, emergency framing, temporary fencing
+950	NO	media/online store	online store tied to the American Contractor Show
+955	MAYBE	restoration/remodeling	name says roofing and siding but the codes, keywords and website are restoration and remodeling
+970	NO	estimating/inspection support	Xactimate scopes and pre-litigation estimating for insurance attorneys
+972	NO	solar service	solar panel detach and reset, cleaning and repair
+973	YES	roofing contractor (Germany)	genuine roofing contractor but based in Maxsain, Germany - the Delaware address is bad data; not a US lead
+974	MAYBE	metal roofing systems manufacturer	made-to-order metal roofing and envelope systems plus accessory supply; unclear whether they install
+976	MAYBE	solar-led	Tesla Certified Solar Roof and Powerwall installer; no conventional roofing service
+979	YES	roofing contractor	description serves Alberta and Western Canada but the address is Fontana, California - verify
+985	YES	commercial GC with roofing license	licensed general contractor with roofing, plumbing and mechanical expertise
+986	NO	distributor	roofing supply distributor for contractors and builders
+991	MAYBE	commercial restoration GC	capital improvements and emergency restoration; roofing in keywords
+992	NO	roof consultant	"We do not sell or install roofing products" - consulting and leak analysis only
+995	NO	manufacturer	roof and floor truss manufacturer
+996	NO	property restoration	fire and water restoration and construction; roofing not named
+1001	NO	sheet metal/HVAC	mechanical and architectural sheet metal contractor; roofing not named
+1004	NO	manufacturer	manufactures liquid rubber roof coatings and waterproofing systems
+1008	MAYBE	general contractor	government and commercial construction services; roofing one keyword
+1011	NO	painting contractor	interior and exterior painting, pressure washing, wood replacement
+1013	YES	roofing + solar	industry tagged retail - a mislabel
+1022	NO	multifamily renovation GC	commercial and multifamily rehabilitation; roofing not named
+1026	NO	building materials supplier	building materials and roofing accessories supplier
+1030	MAYBE	general contractor	concrete, storm repair, steel erection; roofing one keyword
+984	NO	home builder/remodeler	custom home builds and luxury remodeling; roofing not named
+1000	MAYBE	solar-led	solar energy systems; a CertainTeed roofing certification appears in keywords

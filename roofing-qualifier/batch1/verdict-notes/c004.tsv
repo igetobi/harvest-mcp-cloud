@@ -1,0 +1,31 @@
+458	YES	roofing contractor	name says "Distributing" but the description is a residential and commercial roofing service
+464	YES	electrical/solar-led + roofing	"electrical contracting, solar installations, roofing installations"
+469	YES	metal roofing	no keywords or description; unclear from the export whether they install or only supply
+479	YES	roofing contractor	Apollo tags the industry as media production - a mislabel; no other data
+480	NO	supplier	roofing supply company
+481	YES	roofing/sheet metal contractor	Apollo tags the industry as music with keyword "musicians" - a mislabel; description is a commercial roofing contractor
+482	YES	roofing contractor	Apollo tags the industry as warehousing - a mislabel; SIC 1761
+484	YES	commercial roofing contractor	industry tagged building materials but description is a commercial and industrial roofing contractor
+486	NO	supplier	roofing and siding materials supplier
+490	YES	roofing contractor	website truelineroofing.com does not match the company name - verify which business this is
+503	YES	roofing contractor	address is Lakeland, Florida but the description serves the Carolinas - verify
+508	YES	roofing contractor	Apollo tags the industry as pharmaceuticals - a mislabel; website trustedroofs.com
+509	MAYBE	mechanical/HVAC + roofing	NAICS codes are plumbing and HVAC; roofing appears only in the company name
+517	YES	roofing + roof asset management	industry tagged warehousing - a mislabel
+537	YES	roofing contractor	address is Delray Beach, Florida but the description serves Fresno/Clovis, California - verify
+543	NO	footwear wholesaler	wholesales roofing and asphalt work boots
+545	YES	roofing contractor	description reads "Coffman Roofing/Construction" - source data appears mixed up
+553	MAYBE	waterproofing/restoration	waterproofing and historic preservation division of WxTite; commercial roofing only in keywords
+557	UNCLEAR	unknown	description reads "Modern Roof" - source data appears mixed up; no codes or keywords
+559	YES	exteriors/storm restoration platform	national exterior remodeling and storm restoration group, NAICS 238160
+570	YES	commercial roofing platform	private-equity roll-up consolidating commercial roofing providers, not a single local contractor
+585	YES	multi-trade home services	landscaping, roofing, HVAC and concrete
+591	NO	manufacturer	Venezuelan building-materials manufacturer: roofing, panels, waterproofing, paints
+592	NO	manufacturer (India)	steel roofing brand of Dura World, Assam, India
+593	NO	manufacturer	designs, fabricates and installs canopies and wall panel systems
+594	MAYBE	remodeler	large remodeling and additions firm; roofing is one item in the keyword list
+595	NO	directory/lead gen	online roofing directory, contractor referrals and estimates
+596	NO	fabric architecture	tension fabric structures and shade canopies
+597	NO	software	cloud field-service management software for roofing contractors
+598	NO	building envelope consultant	roof and exterior wall expert services, OSHA anchor testing
+599	NO	solar only	rooftop solar installer, no roofing NAICS code or service

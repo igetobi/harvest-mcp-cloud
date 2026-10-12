@@ -1,0 +1,35 @@
+753	YES	roofing contractor	.xyz domain and no description - thin data, verify the business is real
+763	MAYBE	remodeler	kitchen, bath and whole-home remodeling; roofing one keyword among many
+768	MAYBE	general contractor/restoration	full-service construction and remediation; roofing not named
+770	NO	manufacturer	snow retention and roof attachment accessories
+771	NO	software	roofing estimating and project management software
+773	YES	roofing contractor	industry tagged financial services - a mislabel; description serves Ohio towns but the address is New York
+774	YES	roofing contractor	description serves the Rogue Valley (Oregon) but the address is Irving, Texas - verify
+775	YES	roofing contractor	industry and keywords tagged IT services - a mislabel; no other data
+779	MAYBE	emergency board-up/shoring	24/7 board-ups, shoring and building preservation; roofing in keywords
+781	NO	manufacturer	manufactures asphalt roofing felt and synthetic underlayment
+786	MAYBE	building/civil engineering (France)	French general building and civil engineering firm; roofing ("couverture") is one trade - based in Montfa, France, not The Woodlands, Texas
+814	NO	building materials supplier	regional supplier: stucco, stone, brick, siding, lumber
+815	MAYBE	roof prep services	roof vacuuming and ballast removal - a roofing subcontractor service, not a roofing contractor
+816	NO	exterior cleaning	house and roof washing, gutter cleaning, lighting
+817	MAYBE	custom home builder	luxury home building and interior design; "from roofing to landscaping" in the description
+825	MAYBE	roof program management	roofing and paving management firm for enterprise clients; manages rather than performs
+827	UNCLEAR	data mismatch	UK phone (+44 1872) and "Limited" against a Truro, Massachusetts address - likely a Truro, Cornwall roofer
+836	NO	green roof systems supplier	supplies green roof and stormwater roof build-ups
+837	NO	testing lab/engineering	roof tile uplift and fastener pull testing, moisture surveys
+838	MAYBE	remodeler	additions, carpentry, kitchens, siding; roofing not named despite the codes
+840	YES	roofing contractor	industry and keywords tagged software development - a mislabel; no other data
+841	MAYBE	commercial general contractor	design-build commercial construction; "retrofit metal roofing" one keyword
+845	MAYBE	general contractor	full-service GC; commercial specialty roofing appears in keywords only
+846	NO	general contractor/restoration	concrete restoration and waterproofing coatings; roofing not named
+854	MAYBE	solar-led	solar and home energy; "roofing services" in keywords only
+863	NO	solar only	solar plus storage provider
+870	NO	asphalt plant	hot mix asphalt manufacturer for paving
+871	NO	manufacturer/distributor (Canada)	Canadian building envelope materials manufacturer and distributor
+878	NO	manufacturer rep	commercial roofing and waterproofing manufacturers' representative
+881	NO	platform/marketplace	connects roofing contractors with subcontractor crews
+884	MAYBE	disaster restoration	flood damage restoration; roofing in keywords
+885	NO	lumber/building supply	wholesale lumber and building materials
+887	MAYBE	handyman/real-estate repairs	quotes and repairs from Arizona BINSR inspection reports
+889	MAYBE	general contractor	residential construction and remodeling; roofing and solar in keywords
+895	YES	roofing contractor	address is Gambier, Ohio but the description serves Sarasota, Florida - verify

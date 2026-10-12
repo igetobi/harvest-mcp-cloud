@@ -1,0 +1,71 @@
+602	MAYBE	home improvement	gutters, decks, siding, insulation, remodeling; roofing not named, 23816 code only
+603	NO	remodeler	full-service home remodeling and room additions
+604	MAYBE	disaster restoration	fire, wind and hail damage restoration; no roofing trade named
+605	MAYBE	home builder	custom homes and remodels; "metal roofs" is one item in the keyword list
+606	MAYBE	pressure washing/property restoration	commercial pressure washing; roofing repair and maintenance is a secondary line
+607	NO	building materials dealer	lumber, doors, windows, shingles and metal roofing retail
+608	NO	engineering/landscape architecture	civil engineering, landscape architecture and planning
+610	MAYBE	multifamily/HOA general contractor	painting and renovation for multifamily and HOA; roofing not named
+612	MAYBE	general contractor/home builder	custom homes and remodeling; roofing is one keyword
+614	NO	metal products manufacturer	SIC 3441/33232; markets metal roofing products rather than installing
+615	NO	equipment supplier	spray foam and coatings equipment, rigs and training
+616	MAYBE	design-build general contractor	kitchens, baths, concrete, plumbing, HVAC; roofing one keyword among many
+617	NO	prefab buildings	prefab cabins, carports, metal garages, modular buildings
+618	NO	remodeler	home renovations and additions; roofing not named
+619	YES	restoration GC + roofing	large-loss insurance restoration and roofing projects
+621	NO	lead generation	online marketplace connecting homeowners with contractors
+622	NO	remodeler	design-build whole-house remodeling
+624	NO	marketing/lead gen	marketing agency serving commercial roofing contractors
+625	MAYBE	gutter contractor	seamless gutters and leaf protection; carries roofing SIC codes but no roofing service
+626	NO	manufacturer	roofing manufacturer - proprietary wind vent systems
+629	NO	building materials supplier	specialty building materials, lumber, millwork, doors
+630	NO	marketing/lead gen	connects homeowners with vetted roofing partners; SEO and PPC agency
+632	MAYBE	solar-led + exteriors	solar plus exterior remodeling; roofing appears in keywords only
+634	NO	marketing	B2B marketing and sales development agency
+635	NO	distributor	building product distributor: windows, doors, trim, flooring
+637	NO	commercial general contractor	pre-engineered metal buildings and interior renovations; roofing not named
+638	NO	custom home builder	builds custom homes for private-equity investors
+641	NO	home builder	builds energy-efficient homes
+642	NO	solar only	solar installation, batteries and maintenance
+643	NO	lead generation	sells real-estate, healthcare and renewable-energy leads
+644	NO	metal supplier	steel and aluminum coil and sheet supplier
+646	NO	photography/virtual tours	Matterport tours, drone photography
+647	NO	IT/marketing consulting	technology and marketing services for roofing companies
+648	NO	manufacturer rep	manufacturers' rep for waterproofing, roofing and restoration products
+649	NO	general contractor/CM	general contracting and construction management; roofing not named
+650	NO	steel erection	steel erection and pre-engineered metal buildings
+653	NO	builder/remodeler	design and project management for building and remodeling
+655	NO	data analytics	analytics and marketing-technology consultancy
+658	NO	AI lead generation	AI customer acquisition for roofing, solar and insurance firms
+659	NO	software	instant-quote tool built for fence companies
+660	MAYBE	concrete/masonry	concrete and masonry contractor; "roofing contractor" is an SEO keyword
+661	MAYBE	siding contractor	siding, windows, doors and gutters; roofing not named despite a 23816 code
+662	NO	stucco/plastering	stucco and plastering contractor
+663	NO	remodeler	remodeling and restoration; roofing not named
+671	MAYBE	metal building contractor	metal building construction, retrofits and custom wall panels
+674	NO	direct mail lead gen	handwritten geo-targeted mail campaigns, roofing lead generation
+677	YES	roof coatings	commercial roof coatings as a lower-cost alternative to re-roofing
+679	NO	digital marketing	PPC and web marketing for contractors
+681	MAYBE	remodeler	remodeling and room additions; "siding and roofing" in keywords
+683	NO	product (gutter guard)	Gutter Cap gutter protection product
+687	YES	roofing contractor	description refers to roofers in Oakville (Ontario) but the address is Snohomish, Washington - verify
+690	MAYBE	remodeler	additions, kitchens, baths; roofing is one keyword among many trades
+691	NO	manufacturer rep	commercial roofing and building envelope manufacturers' rep
+693	NO	patio covers/sunrooms	aluminum patio covers, sunrooms and enclosures
+695	YES	energy contractor + roofing	operates a Stellar Roofing and Solar division
+696	YES	roofing contractor	address is Valdosta, Georgia but the description serves Southern California - verify
+699	NO	home inspection	licensed home and commercial inspectors
+713	NO	outdoor living structures	louvered patio roof systems and outdoor living spaces, not building roofs
+712	MAYBE	solar-led	residential solar; roofing appears in keywords only
+724	YES	general contractor + roofing	roofing, rigging, scaffolds, masonry and building restoration
+725	MAYBE	remodeler	remodeling company; keywords are only "roofing, construction"
+726	MAYBE	disaster restoration	water, fire and mold restoration; roofing in keywords only
+727	NO	hardware supplier	roofing and decking screws, construction hardware
+731	YES	chimney + roof repair	chimney and roofing repair service
+734	MAYBE	painting contractor	interior and exterior painting; roofing appears at the tail of the keyword list
+739	MAYBE	general contractor/real estate	general contracting and real estate brokerage; roofing one keyword
+743	NO	estimating service	construction cost estimating and takeoff services
+747	YES	multi-trade installer	residential and commercial roofing installs plus flooring and stone
+750	YES	roofing contractor	description is scraped SEO navigation text - thin data, verify
+710	YES	roofing contractor	keywords are only directory categories; thin data
+705	YES	roofing contractor	keywords are only directory categories; thin data
