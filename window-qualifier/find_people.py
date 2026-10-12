@@ -142,7 +142,7 @@ def emails_from(soup: BeautifulSoup, raw: str, domain: str) -> dict:
     return found
 
 
-def person_near(ctx: str, addr: str):
+def person_near(ctx: str, addr: str, domain: str = ""):
     """Best guess at the person's name and role from text around the address."""
     ctx = html.unescape(re.sub(r'\s+', ' ', ctx or ''))
     role, tier = classify_role(ctx)
@@ -154,19 +154,36 @@ def person_near(ctx: str, addr: str):
             m = pat.search(ctx)
             if m and label == role:
                 before = ctx[max(0, m.start() - 60): m.start()]
-                names = NAME_RE.findall(before)
-                if names:
-                    name = " ".join(names[-1])
-                else:
-                    after = ctx[m.end(): m.end() + 60]
-                    names = NAME_RE.findall(after)
-                    if names:
-                        name = " ".join(names[0])
+                after = ctx[m.end(): m.end() + 60]
+                for window, nth in ((before, -1), (after, 0)):
+                    if BOUNDARY.search(window):
+                        continue   # the role word is in a different card
+                    names = NAME_RE.findall(window)
+                    if not names:
+                        continue
+                    cand = " ".join(names[nth])
+                    if BAD_NAME.search(cand) or not looks_like_name(cand):
+                        continue
+                    name = strip_generation(cand)
+                    break
                 break
     if not name:
-        local = addr.split("@")[0]
-        if not ROLE_MAILBOX.match(addr) and re.fullmatch(r'[a-z]+[._-][a-z]+', local):
-            name = " ".join(p.capitalize() for p in re.split(r'[._-]', local))
+        # A first.last mailbox on the company's own domain is the employer
+        # publishing that person's name, so it can be read as one. The same
+        # shape on gmail or yahoo is not: crystal.murrayglass@gmail.com gives
+        # "Crystal Murrayglass", which is the business, not a surname. Note
+        # that corroborates() cannot catch this downstream — a name derived
+        # from the address always agrees with it.
+        local, host = addr.split("@", 1)
+        host = host.lower()
+        on_domain = bool(domain) and (host == domain.lower()
+                                      or host.endswith("." + domain.lower())
+                                      or domain.lower().endswith("." + host))
+        if (on_domain and not ROLE_MAILBOX.match(addr)
+                and re.fullmatch(r'[a-z]+[._-][a-z]+', local)):
+            cand = " ".join(p.capitalize() for p in re.split(r'[._-]', local))
+            if not BAD_NAME.search(cand) and looks_like_name(cand):
+                name = cand
     return name, role, tier
 
 
@@ -194,7 +211,31 @@ NOT_NAME_WORD = {
     'president', 'owner', 'founder', 'partner', 'sales', 'marketing', 'customer', 'client',
     'our', 'your', 'his', 'her', 'their', 'meet', 'about', 'contact', 'read', 'more',
     'learn', 'view', 'call', 'today', 'free', 'quote', 'estimate', 'home', 'homes',
+    # trade and marketing vocabulary that sits next to a role word on a sales page
+    'exterior', 'exteriors', 'renovation', 'renovations', 'remodel', 'remodels',
+    'siding', 'roof', 'roofs', 'replacement', 'replacements', 'installation',
+    'installations', 'repair', 'repairs', 'trusted', 'local', 'original', 'since',
+    'specialist', 'specialists', 'expert', 'experts', 'professional', 'professionals',
+    'commercial', 'residential', 'project', 'projects', 'gallery', 'reviews',
+    'financing', 'warranty', 'since', 'serving', 'proudly', 'family', 'owned',
 }
+
+# "Jr", "Sr", "II" are generation suffixes, not name words: dropped before a name
+# is validated, so "Tim Jr Brown" is read as Tim Brown rather than rejected.
+GENERATION = {'jr', 'jr.', 'sr', 'sr.', 'ii', 'iii', 'iv'}
+
+
+def strip_generation(name: str) -> str:
+    parts = [p for p in name.split() if p.lower().strip('.') not in
+             {g.strip('.') for g in GENERATION}]
+    return " ".join(parts)
+
+
+# Page furniture between a name and a role word means they came from different
+# cards on a team page, not from one person's byline. "Read More" is the common
+# one: it ends a card, so a name after it belongs to the next person.
+BOUNDARY = re.compile(r'(read more|learn more|view (bio|profile)|\||\u00b7|\u2192|\d|'
+                      r'[.!?]\s|\bemail\b|\bcall\b)', re.I)
 
 
 BRANDS = {
@@ -214,7 +255,7 @@ def is_brand(name: str) -> bool:
 
 def looks_like_name(name: str) -> bool:
     """Two or three capitalised word-tokens, none of which is page furniture."""
-    parts = name.split()
+    parts = strip_generation(name).split()
     if not 2 <= len(parts) <= 3:
         return False
     for p in parts:
@@ -240,8 +281,11 @@ def people_in_prose(text: str) -> list:
         for m in pat.finditer(t):
             name = (m.group(1) if name_first else m.group(2)).strip()
             title = (m.group(2) if name_first else m.group(1)).strip()
+            if BOUNDARY.search(m.group(0)):
+                continue          # name and role are from different team cards
             if BAD_NAME.search(name) or not looks_like_name(name):
                 continue
+            name = strip_generation(name)
             role, tier = classify_role(title)
             if role:
                 out.append({"name": name, "role": role, "tier": tier,
@@ -329,7 +373,7 @@ def crawl(domain: str, session: requests.Session) -> dict:
             if k not in prose or p["tier"] < prose[k]["tier"]:
                 prose[k] = {**p, "source": url}
         for addr, ctx in emails_from(s, raw, domain).items():
-            name, role, tier = person_near(ctx, addr)
+            name, role, tier = person_near(ctx, addr, domain)
             prev = people.get(addr)
             cand = {"email": addr, "name": name, "role": role, "tier": tier,
                     "source": url,
