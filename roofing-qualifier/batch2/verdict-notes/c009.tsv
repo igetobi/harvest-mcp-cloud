@@ -1,0 +1,36 @@
+1017	YES	roofing contractor/solar	Solar-led contractor; roof repair and full roof replacement are among its own services
+1019	YES	roofing contractor	Thin data: generic address-only description
+1020	YES	roofing contractor	Thin data: description repeats the company name, no keywords or codes
+1021	NO	inspector	Drone thermography roof inspections only; no roof repair or replacement
+1023	YES	roofing contractor/solar	Home-energy company led by solar; roofing is one of its named specialities
+1024	NO	specialty structures	Designs canopy and roof structures for padel, tennis and pickleball courts, not building roofs
+1026	YES	roofing contractor/solar	Solar- and HVAC-led contractor; roof repair is one of its own described service lines
+1028	MAYBE	other trade	Name includes roofing but the description sells only gutters and siding
+1029	YES	roofing contractor	Thin data: one-line description; Apollo industry mislabelled "management consulting"
+1030	YES	roofing contractor	Thin data: no keywords, description or codes; Apollo industry mislabelled "executive office"
+1031	YES	roofing contractor	Apollo industry mislabelled "civil engineering"
+1032	YES	roofing contractor	Thin data: no keywords, description or codes; Apollo industry mislabelled "entertainment"
+1033	YES	roofing contractor	Shared call-centre description template, (877) 259-1106; Apollo industry mislabelled "building materials"
+1034	YES	roofing contractor	Thin data: no description; Apollo industry mislabelled "mental health care"
+1035	YES	roofing contractor	Thin data: no description; Apollo industry mislabelled "building materials"
+1036	YES	roofing contractor	Thin data: no keywords, description or codes; Apollo industry mislabelled "building materials"
+1037	YES	roofing contractor	Description is for a Brevard County, Florida contractor while the address is Orangevale, California; industry mislabelled "higher education"
+1038	NO	media	Digital media brand for the roofing and exterior construction industries
+1039	NO	supplier/distributor	Supplies roofing, roof insulation and waterproofing products rather than installing them
+1040	MAYBE	solar	Name includes roofing but every described service is solar
+1042	YES	roofing contractor/solar	Solar-led company whose described services include roofing as well as solar
+1043	YES	roofing contractor	Thin data: generic address-only description
+1044	NO	education	Exam-preparation school for the Illinois roofing contractor licence
+1045	YES	roofing contractor	Thin data: no description; Apollo industry mislabelled "mining & metals"
+1046	MAYBE	solar	Solar installer; "solar roofing" and "solar shingles" keywords only, no roof work described
+1048	YES	roofing contractor	Thin data: no industry, keywords, description or codes
+1049	YES	roofing contractor	Thin data: no industry, keywords, description or codes
+1050	YES	roofing contractor	Thin data: no industry, keywords, description or codes
+1051	NO	manufacturer	Metal roofing manufacturer; only keyword is "wholesale building materials"
+1052	UNCLEAR	roofing contractor	Industry, SIC/NAICS codes and description are all Turkish online-casino spam; nothing but the name supports roofing
+1053	YES	roofing contractor	Thin data: no description
+1054	YES	roofing contractor	Thin data: no industry, keywords, description or codes
+1055	YES	roofing contractor	Thin data: no industry, keywords, description or codes
+1056	YES	roofing contractor	City missing from the source row
+1057	YES	roofing contractor	Thin data: no industry, keywords, description or codes
+1058	YES	roofing contractor	Thin data: no description

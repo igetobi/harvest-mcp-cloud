@@ -1,0 +1,67 @@
+806	YES	roofing contractor/solar	Describes itself as a solar-focused roofing contractor
+811	YES	roofing contractor/GC	Multi-trade commercial subcontractor (shell, framing, stucco, roofing, painting); the address is Murfreesboro, Tennessee but the description places it in Tampa
+812	YES	roofing contractor	Thin data: generic address-only description
+823	YES	roofing contractor/remodeler	Remodel-led contractor since 1977; roofing is one of the named services
+824	YES	roofing contractor	City and state missing from the source row
+827	YES	roofing contractor	Description is a truncated mid-sentence fragment about commercial membrane options
+828	YES	roofing contractor	Thin data: no keywords, description or codes
+829	YES	roofing contractor	Thin data: no description
+830	YES	roofing contractor	Thin data: no description
+831	YES	roofing contractor	Thin data: no keywords, description or codes
+833	YES	roofing contractor	Thin data: no keywords, description or codes
+834	YES	roofing contractor	Thin data: generic address-only description
+835	YES	roofing contractor	Thin data: description repeats the company name
+836	YES	roofing contractor	Thin data: no keywords, description or codes
+838	YES	roofing contractor	Thin data: no keywords, description or codes
+839	YES	roofing contractor	Thin data: no keywords, description or codes
+841	YES	roofing contractor	Thin data: generic address-only description
+842	YES	roofing contractor	Thin data: no description
+843	YES	roofing contractor	Thin data: no keywords, description or codes
+844	YES	roofing contractor	Thin data: no keywords, description or codes
+846	YES	roofing contractor	UK company (balmoralflatroofing.co.uk); "Mansfield, Ohio" is a mangled Mansfield, England. No other data
+847	YES	roofing contractor	Thin data: no keywords, description or codes
+848	YES	roofing contractor	Thin data: no keywords or description
+849	YES	roofing contractor	Thin data: no description
+851	YES	roofing contractor	Thin data: no keywords, description or codes
+852	YES	roofing contractor	Thin data: no description
+858	YES	roofing contractor	Thin data: no description
+859	YES	roofing contractor	Thin data: no description
+874	YES	roofing contractor	Thin data: no industry, keywords, description or codes
+875	NO	supplier/distributor	Sales and service arm for Miller Weldmaster roofing hot-air welding tools
+876	YES	roofing contractor	Thin data: description reads "under construction"; city missing from the source row
+878	NO	manufacturer	Radiant heating products for snow melting and roof de-icing, not roofing work
+879	YES	roofing contractor	Thin data: generic address-only description
+880	YES	roofing contractor/GC	General contractor and remodeler; roofing and roofing replacement are named services
+881	YES	roofing contractor	Thin data: no keywords, description or codes
+882	YES	roofing contractor	Address is Morris Plains, New Jersey but the description is for Shamrock Roofing Texas (Tomball/North Houston)
+883	YES	roofing contractor	Address is Walnut Grove, California but the company and description are Utah (freedomroofingutah.com)
+885	MAYBE	roofing services subcontractor/dealer	Commercial roof gravel-removal contractor and the sole US dealer for Vector Vecloaders; no roof installation
+886	YES	roofing contractor	Shared call-centre description template, (877) 259-1106
+887	YES	roofing contractor	Address is Sparta, Wisconsin but the description is for a Nanaimo, British Columbia (Canada) company
+888	NO	manufacturers rep	Building-envelope manufacturers' representative and consultant
+889	NO	consultant	Weather and forensic meteorology consultancy serving roofing and insurance clients
+890	NO	manufacturers rep	Representative for Elevate, USG, GenFlex and other commercial roofing manufacturers
+893	NO	supplier/distributor	Roofing supply shop selling surplus and A-grade roofing materials
+896	NO	supplier/distributor	Online roofing and insulation materials store
+899	YES	roofing contractor/coatings	Roof coating and restoration applicator; recoats existing metal and flat roofs
+900	NO	financial services	Contractor financing platform
+901	YES	roofing contractor	Thin data: no keywords, description or codes
+902	NO	manufacturer	Vermont roofing slate producer, shipping slate to architects and contractors
+904	YES	roofing contractor	Apollo industry mislabelled "management consulting"; keywords are consulting boilerplate
+905	NO	supplier/distributor	Building materials and hardware supplier (metal roofing screws, fencing, concrete accessories)
+907	NO	manufacturer	Manufacturer of profiled metal roofing and siding panels and pre-engineered buildings
+908	NO	manufacturers rep	Manufacturer's representative for building-envelope and green-roof systems
+909	YES	roofing contractor	Thin data: no description
+910	YES	roofing contractor	Thin data: no keywords or description
+911	YES	roofing contractor	Thin data: free-host website, no keywords, description or codes
+913	NO	consultant	Roofing consultancy (SIC 8712/8742, NAICS 541310/541690) with consulting-only keywords
+914	YES	roofing contractor	Thin data: no industry, keywords, description or codes
+915	YES	roofing contractor	City missing from the source row
+918	YES	roofing contractor	Thin data: no keywords, description or codes
+920	YES	roofing contractor	Thin data: no keywords, description or codes
+921	YES	roofing contractor	Thin data: no industry, keywords, description or codes
+923	YES	roofing contractor	UK company (perfectroofingandfascia.co.uk); "Gloucester Point, Virginia" is a mangled Gloucester, England. No other data
+924	YES	roofing contractor	Thin data: no description
+929	NO	exterior cleaning	Roof and surface cleaning with GoNano shingle treatments; no roof repair or replacement
+930	YES	roofing contractor	Thin data: no industry, keywords, description or codes
+931	NO	manufacturer	Sheet metal manufacturing and distribution (metal roofing panels, drainage, custom metalwork)

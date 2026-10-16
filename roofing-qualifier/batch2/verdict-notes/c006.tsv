@@ -1,0 +1,50 @@
+666	YES	roofing contractor	Thin data: no description
+670	YES	roofing contractor	Thin data: no keywords, description or codes
+671	YES	roofing contractor	Thin data: no keywords or codes; description is a one-line tagline
+672	YES	roofing contractor	Thin data: no keywords, description or codes
+674	YES	roofing contractor	Thin data: no keywords, description or codes
+675	YES	roofing contractor	Shared call-centre description template, (877) 259-1106
+676	YES	roofing contractor	Thin data: no description
+677	YES	roofing contractor	Thin data: no industry, keywords, description or codes
+680	NO	supplier/distributor	Roofing tool and equipment dealer (SIC 5251, NAICS 423840)
+693	MAYBE	other trade	Trades as Forsyth Exteriors; the described services are skylights, sun tunnels, siding, gutters and decks, not roof work
+694	YES	roofing contractor	Thin data: no keywords, description or codes
+696	YES	roofing contractor	Thin data: no description
+697	YES	roofing contractor	Thin data: no description
+698	YES	roofing contractor	Thin data: no keywords, description or codes
+699	YES	roofing contractor	Thin data: generic address-only description
+702	YES	roofing contractor	Address is Elk Grove, California but the description places the company in Humble, Texas
+709	MAYBE	coatings manufacturer/applicator	Sells seamless elastomeric membrane systems as products, equipment and labour; closer to a coatings supplier than a roofing contractor
+710	MAYBE	builder/restoration	Masonry, stucco and facade restoration contractor; roofing appears in the keywords but not among the described services
+713	UNCLEAR	roofing contractor	Name says roofing but the whole description is concrete work (curbs, sidewalks, slabs, driveways) for a Sanford, Florida contractor
+723	MAYBE	remodeler	Home remodeling one-stop shop; roofing appears as a keyword and in a "roof to foundation" phrase, not as a described service
+725	MAYBE	supplier/manufacturer	Sells NextGen stone-coated steel roofing to contractors and homeowners; the description is a product pitch, not installation
+728	YES	roofing contractor	Thin data: no employees, industry, keywords, codes or description
+729	YES	roofing contractor	Thin data: no keywords, description or codes
+730	YES	roofing contractor	Thin data: no keywords, description or codes
+733	YES	roofing contractor	Thin data: no keywords, description or codes
+736	YES	roofing contractor	Thin data: no description
+740	YES	roofing contractor/remodeler	Apollo industry "building materials" and a "wholesale building materials" keyword conflict with the described roofing and remodeling services
+742	YES	roofing contractor	Thin data: no keywords, description or codes
+745	YES	roofing contractor	Description field is spam-injected Polish footwear marketing text; verdict rests on the name and 1761/238160
+748	MAYBE	consultant/claims specialist	Name reads as an insurance-claims specialist rather than a roofer; no keywords, codes or description to tell
+751	YES	roofing contractor	Thin data: description is a one-line call to action
+756	YES	roofing contractor	Thin data: no description
+758	YES	roofing contractor	Address is Shenandoah, Texas but the description serves Blackfoot, Idaho Falls and Pocatello, Idaho
+759	YES	roofing contractor	Thin data: no description
+762	YES	roofing contractor	Thin data: no keywords, description or codes
+763	YES	roofing contractor	Thin data: no description
+764	YES	roofing contractor	Thin data: no keywords, description or codes
+766	YES	roofing contractor	Thin data: no keywords, description or codes
+780	YES	roofing contractor/diversified	Diversified family group (road salt, excavation, electrical, rail); commercial roofing is one of its named divisions
+781	YES	roofing contractor	Address is Binghamton, New York but the description is for a Dallas-Fort Worth contractor
+783	YES	roofing contractor	Thin data: no employees, industry, keywords, codes or description
+785	YES	roofing contractor/supplier	Sells and installs commercial metal siding and roofing; also distributes bar joists and metal deck (NAICS 42339)
+786	YES	roofing contractor	Thin data: no description
+787	YES	roofing contractor	Thin data: generic address-only description
+788	MAYBE	coatings/insulation contractor	Spray foam insulation and polyurea coatings specialist that lists roofing/waterproofing systems; city and state missing from the source row
+791	YES	roofing contractor	Thin data: no description
+792	YES	roofing contractor	Thin data: no keywords, description or codes
+793	MAYBE	supplier/distributor	Apollo industry "building materials" with a wholesale keyword, no description, a New York address against a .net Florida domain
+794	YES	roofing contractor	Thin data: no description
+796	YES	roofing contractor	Thin data: generic address-only description

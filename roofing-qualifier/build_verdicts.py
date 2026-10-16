@@ -29,6 +29,8 @@ GROUPS = [
     # a roofing contractor that also does an adjacent trade is still a roofing
     # contractor; the solar-led and coatings-led ones are kept separate below
     # because that is the distinction worth filtering on
+    ("roofing contractor", r'^roofing contractor|^roofing/'),
+    ("other trade", r'^roofing services subcontractor'),
     ("roofing contractor", r'^roofing[/ ](contractor|sheet metal|gutter)|'
                             r'^(commercial )?roofing platform|'
                             r'^exteriors/storm restoration platform'),
@@ -36,7 +38,7 @@ GROUPS = [
                               r'materials|metal suppl|fabricat|recycler|product '
                               r'\(|truss|prefab|decking subcontractor|'
                               r'green roof systems|hardware|footwear|asphalt plant'),
-    ("software/marketing/lead-gen", r'software|lead gen|marketing|analytics|'
+    ("software/marketing/lead-gen", r'software|lead.?gen|marketing|analytics|'
                                     r'media|directory|platform|marketplace|'
                                     r'visualization|photography|IT/'),
     ("consultant/inspector/estimator", r'consultant|consulting|estimat|inspect|'
@@ -55,6 +57,7 @@ GROUPS = [
                     r'waterproofing|sheet metal|HVAC|mechanical|steel erection|'
                     r'patio|outdoor living|fabric architecture|awnings|'
                     r'equipment|trucking|home energy|home inspection|'
+                    r'^coatings|insulation|'
                     r'metal building contractor|franchisor'),
 ]
 

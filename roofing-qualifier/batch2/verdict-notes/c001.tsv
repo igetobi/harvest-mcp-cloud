@@ -1,0 +1,61 @@
+4	MAYBE	solar	Solar installer; roofing only as a partnered warranty bundle, no roof work of its own shown
+5	NO	home services/appliance repair	General home repair (appliance, pest, plumbing); roofing is one keyword, no roof work described
+6	YES	roofing/general contractor	Commercial roofing + GC; HAAG-certified roof inspection and insurance-funded roof repair
+10	MAYBE	metal building contractor	Steel/metal buildings and carports; metal roofs come with the building, not sold as roofing
+20	YES	roofing contractor	UK company (cotswoldmetalroofing.co.uk) carrying a Woodstock, Georgia address - location likely wrong
+21	NO	roof testing/inspection	Nondestructive roof moisture testing and thermography only; no installation or repair
+30	MAYBE	other trade	HVAC/plumbing/electrical; roofing named in passing among systems serviced
+31	YES	roofing contractor	No description; verdict from the all-roofing keyword list and 1761/238160
+35	YES	roofing contractor	City and state missing from the source row
+36	MAYBE	builder/GC	Civil works and general contracting; "reparacion de cubiertas" (roof repair) among many services
+39	MAYBE	home improvement	Multi-trade home upgrades (turf, concrete, smart home, solar); roofing one offering among many
+44	NO	restaurant	Turkish-Mediterranean restaurant; roofing-list membership is a source-data error
+46	YES	roofing contractor	Thin data: no website, keywords, codes or real description
+47	NO	supplier/distributor	Wholesale roofing and waterproofing materials distributor
+48	NO	manufacturers rep	Commercial roofing and building-envelope manufacturer's representative
+49	NO	supplier/distributor	Supplier of windows, doors, siding and roofing products
+50	NO	directory/lead-gen	Contractor-referral and vetting platform
+51	NO	supplier/distributor	Wholesale building materials supplier
+52	NO	manufacturer	Manufacturer of Ecodur roof coatings
+53	NO	online media	Mid-century-modern homeowner media and resource network
+54	NO	supplier/distributor	Full-service lumberyard and millwork shop
+56	NO	manufacturer	Metal roofing manufacturer selling complete packages to contractors and owners
+57	YES	roofing contractor	Apollo industry mislabelled "telecommunications"
+58	YES	roofing contractor	Apollo industry mislabelled "hospitality"; trades as DeMello Roofing
+59	MAYBE	restoration GC	Property restoration (fire, water, biohazard); roofing leaks named among damage types
+60	YES	roofing contractor	Thin data: no description; Apollo industry mislabelled "oil & energy"
+61	YES	roofing contractor	Apollo industry mislabelled "graphic design"
+62	NO	manufacturer	Manufacturer of thermoplastic single-ply roofing membranes
+63	MAYBE	supplier/distributor	Thin data: no description; "wholesale building materials" keyword against a roofing name
+64	YES	roofing contractor	Apollo industry mislabelled "human resources"
+65	YES	roofing contractor	Apollo industry mislabelled "marketing & advertising"
+67	YES	roofing contractor	Apollo industry mislabelled "telecommunications"
+68	MAYBE	supplier/distributor	Thin data: no description; metal roof systems name with a wholesale-materials keyword
+69	NO	supplier/distributor	Retail lumberyard, founded 1848
+72	NO	manufacturer	Post-frame building materials and metal roofing manufacturer
+73	NO	supplier/distributor	Metal building components supplier and fabricator
+74	NO	marketing agency	Local SEO and lead generation for contractors, including roofers
+76	NO	manufacturer	Manufacturer of roof ventilation, sealants and accessories
+78	MAYBE	solar	Solar and battery installer; roof repairs listed but every described service is solar
+79	NO	marketing agency	Digital marketing and web design agency
+80	NO	consultant	Building-envelope and roofing consulting engineers/architects
+81	YES	roofing contractor	Apollo industry mislabelled "real estate"
+83	NO	supplier/distributor	Supplier of cladding and rainscreen facade materials
+84	NO	manufacturer	Manufacturer of rooftop pedestal support systems
+85	NO	supplier/distributor	Full-line distributor of exterior building products
+86	NO	exterior cleaning	Pressure washing and roof cleaning only; no roof repair or replacement
+87	NO	marketing agency	Digital marketing and AI lead handling for home-services trades
+89	NO	marketing agency	Marketing agency whose clients are roofing contractors
+90	YES	roofing contractor	Thin data: no description, keywords only b2c/services
+93	YES	roofing contractor	Thin data: no description, keywords only b2c/b2b
+99	MAYBE	roofing platform	Consolidator that supports partner roofing companies; back-office and growth support, not roof work
+105	YES	roofing contractor	Thin data: no keywords, description or codes
+106	NO	manufacturer	Manufacturer of roof and deck coating systems (SIC 324122)
+107	YES	roofing contractor	Description is for the Fairfax, Virginia Reyes Roofing while the address is Fort Worth, Texas
+108	YES	roofing contractor	Thin data: no description, keyword only "services"
+109	YES	roofing contractor	Thin data: generic address-only description
+112	YES	roofing contractor	Thin data: no keywords, description or codes
+117	YES	roofing contractor	Thin data: address-only description, no keywords
+119	YES	roofing contractor	Thin data: no keywords, description or codes
+121	NO	inspector	Home, commercial and roof inspections only
+123	YES	roofing contractor	Thin data: no keywords or description

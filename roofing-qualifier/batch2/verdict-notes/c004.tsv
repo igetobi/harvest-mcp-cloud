@@ -1,0 +1,37 @@
+402	YES	roofing contractor	City and state missing from the source row
+407	YES	roofing contractor	Website mountainviewroofingnj.com does not match the Nampa, Idaho address; the description says Boise
+408	YES	roofing contractor	Thin data: no description
+411	YES	roofing contractor	Thin data: no description
+413	YES	roofing contractor	Address is Fall River Mills, California but the description places the company in Aledo
+415	YES	roofing contractor	Thin data: no keywords, description or codes
+416	YES	roofing contractor	Thin data: no keywords, description or codes
+417	MAYBE	builder/GC	General contractor and remodeler; roofing appears only as the last keyword, not in the description
+418	YES	roofing contractor	Thin data: no description
+419	YES	roofing contractor	Thin data: no description
+424	YES	roofing contractor	Thin data: no description
+428	YES	roofing contractor	Thin data: no keywords or description
+431	YES	roofing contractor/remodeler	Remodeling contractor that lists roofing among its own specialised services
+442	YES	roofing contractor/GC	Multi-trade construction contractor; roofing is one of the services it names performing
+444	YES	roofing contractor	Thin data: description repeats the company name, no keywords or codes
+446	YES	roofing contractor	Thin data: no keywords, description or codes
+452	YES	roofing contractor	Thin data: no description
+453	YES	roofing contractor	Shared call-centre description template, (877) 259-1106
+459	YES	roofing contractor	Thin data: no keywords or description
+461	YES	roofing contractor	Shared call-centre description template, (877) 259-1106
+462	YES	roofing contractor	Thin data: no description
+465	YES	roofing contractor	Thin data: no description
+469	YES	roofing contractor	Thin data: no keywords or description
+470	YES	roofing contractor	Trades as BJ's Home Improvement; website myhomeprojectcenter.com does not match the listed name
+473	YES	roofing contractor	Thin data: no description
+485	MAYBE	supplier/manufacturer	Describes itself as providing integrated roofing systems (panels, ridge caps, accessories), not as installing roofs
+494	YES	roofing contractor	Thin data: no keywords, description or codes
+503	YES	roofing contractor	Thin data: no keywords, description or codes
+504	YES	roofing contractor	Thin data: no keywords, description or codes
+505	YES	roofing contractor	Address is Silver Spring, Maryland but the description serves the Atlanta area
+506	YES	roofing contractor/GC	Multi-family capital-improvement and insurance-reconstruction contractor; roofing is one of its named specialities
+507	YES	roofing contractor	Thin data: no keywords, description or codes; Apollo industry mislabelled "real estate"
+508	YES	roofing contractor	Address is Pittsburgh, Pennsylvania but the description and phone number serve Cumming, Georgia
+509	YES	roofing contractor	Address is West Fargo, North Dakota but the description is for a Perth, Ontario (Canada) company
+511	YES	roofing contractor	Shared call-centre description template, (877) 259-1106
+518	YES	roofing contractor/remodeler	Remodeling-led contractor; roofing and roof repair are named services
+526	YES	roofing contractor	Thin data: no keywords or description

@@ -6,7 +6,12 @@ repairs or replaces roofs — and which ones only sit near the trade: material
 manufacturers and distributors, equipment vendors, consultants, estimators,
 software and lead-gen firms, trade associations, roof cleaners, solar installers.
 
-Batch 1 holds **1,158 companies**. Every row was read individually against its
+Two batches so far: **batch 1, 1,158 companies** and **batch 2, 1,061
+companies** (2,219 in total; the Apollo record ids confirm no overlap). Each
+batch has its own folder and its own README — `batch2/README.md` covers batch 2
+and the figures below are batch 1's.
+
+Every row was read individually against its
 own keywords, short description, SIC/NAICS codes, name and website. No per-company
 web search was run — the export already carries that text, which is what you asked
 for. Where the export is thin or self-contradictory, the row says so rather than
@@ -120,10 +125,25 @@ One side effect of the lost tabs remains visible in the output: a handful of
 `city` / `state` values absorbed part of the un-joined address block. No company
 name came out doubled, and nothing here affects a verdict.
 
+## Batch 2
+
+`batch2/` holds the second export: 1,061 companies, 911 YES, 39 MAYBE, 107 NO,
+4 UNCLEAR. Same verdict taxonomy, same confidence rules, same four CSVs. See
+`batch2/README.md` for its counts, its exclusion breakdown and the source
+defects it turned up (thirteen foreign companies carrying US addresses, ten rows
+sharing one call-centre description, three spam-injected descriptions, 33 Apollo
+industry mislabels).
+
+That paste kept its tab delimiters, so it needed no shape recovery: it parses as
+plain TSV against batch 1's column order, with no header row.
+
 ## Next batches
 
-Send them the same way. The parser handles the `Lists` values seen so far
-(`Roofing List (x-Tobi)`, `Master List - Roofing - Tobi`, `All Window Installation
-List`, `Window Installation List for TX,Phoenix,FL`); a new list name needs adding
-to `_LIST_NAMES` in `parse_batch.py`, and the parser will otherwise merge two
-records into one — the record count and the Apollo-id uniqueness check catch it.
+If the paste arrives **with tabs intact**, parse it as TSV (23 columns in the
+order of batch 1's header) — that is what batch 2 needed, and it is the easy
+case. If the tabs are **stripped**, `parse_batch.py` recovers the columns from
+the shape of their values; it handles the `Lists` values seen so far (`Roofing
+List (x-Tobi)`, `Master List - Roofing - Tobi`, `All Window Installation List`,
+`Window Installation List for TX,Phoenix,FL`), and a new list name needs adding
+to `_LIST_NAMES` or the parser will merge two records into one — the record count
+and the Apollo-id uniqueness check catch it.

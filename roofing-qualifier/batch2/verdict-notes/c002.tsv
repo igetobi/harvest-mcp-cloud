@@ -1,0 +1,44 @@
+136	NO	supplier/distributor	Distributor of tools, equipment, fasteners and fall protection to roofers
+146	YES	roofing contractor	Thin data: no employees, industry, keywords, codes or description
+149	YES	roofing contractor	Thin data: no description, keyword only b2c
+152	NO	painting/coatings	Rhino Shield wall-coating franchise; the product goes on walls, trim and soffit, not roofs
+157	YES	roofing contractor	Thin data: no keywords or description
+158	YES	roofing contractor	Thin data: no keywords, description or codes
+159	YES	roofing contractor	Thin data: no keywords, description or codes
+162	YES	roofing contractor	Thin data: no keywords or description
+163	YES	roofing contractor	Thin data: no description
+164	YES	roofing contractor	Thin data: no description
+166	YES	roofing contractor	Thin data: no description
+168	YES	roofing contractor	New Zealand company (roofingtasman.co.nz) carrying a Richmond, Virginia address; description is a customer testimonial
+169	YES	roofing contractor	Thin data: no keywords, description or codes
+170	NO	consultant	Roofing consultancy (SIC 8742, NAICS 541611/541618), no roof work
+175	YES	roofing contractor	Thin data: no keywords or description
+186	YES	roofing contractor	Thin data: no description
+191	YES	roofing contractor	Thin data: generic address-only description
+192	YES	roofing contractor	Thin data: no description
+194	YES	roofing contractor	Thin data; description names San Juan, Texas while the address is Farmington, New Mexico
+196	YES	roofing contractor	Thin data: generic address-only description
+198	YES	roofing contractor	Shared call-centre description template, (877) 259-1106
+200	YES	roofing contractor	Shared call-centre description template, (877) 259-1106
+201	YES	roofing contractor	Thin data: generic address-only description
+204	MAYBE	remodeler	General remodeling and handyman work across 15 trades; roofing one keyword, no roof work described
+209	MAYBE	other trade	HVAC-led home improvement; roofing one keyword among many trades
+211	MAYBE	builder/GC	General contractor for interior/exterior remodeling and fencing; roofing a keyword only
+214	YES	roofing contractor	Thin data: no employees, industry, keywords, codes or description
+217	YES	roofing contractor	Thin data: no description, keyword only b2b
+231	YES	roofing contractor	Thin data: no description; website idahofallsdirect.us does not match the company name
+236	YES	roofing contractor/builder	New construction and renovation builder; roofing is one of the services it names performing
+242	YES	roofing contractor	UK company (shedgesroofingreading.co.uk) carrying a Reading, Pennsylvania address; thin data otherwise
+246	NO	supplier/distributor	Roofing supply house
+250	YES	roofing contractor	Thin data: no description
+251	YES	roofing contractor	Thin data: no industry, keywords or description
+253	YES	roofing contractor	Thin data: no industry, keywords or description
+254	YES	roofing contractor	Thin data: no keywords or description
+255	YES	roofing contractor	Thin data: no description
+256	YES	roofing contractor	Description belongs to "Roofing and Remodeling Projects Corp.", not to the listed name
+257	YES	roofing contractor/renovator	Multi-trade renovator that lists a full range of roofing work; city missing from the source row
+259	YES	roofing contractor	Thin data: no keywords or description
+260	UNCLEAR	roofing contractor	Description is a parked-domain placeholder ("This domain may be for sale"); no evidence the business is trading
+261	YES	roofing contractor	Description field is spam-injected Chinese lottery text; verdict rests on the name and 1761/238160
+262	YES	roofing contractor	Thin data: no description
+266	YES	roofing contractor	Thin data: no description
