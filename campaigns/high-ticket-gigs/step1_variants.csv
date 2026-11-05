@@ -1,0 +1,76 @@
+niche,variant,gig,subject,body,note
+plumbers,V1,sewer line replacements,do you do sewer line replacements?,"Hi {{firstName}},
+
+Do you do sewer line replacements?
+
+{{sendingAccountFirstName}}",
+plumbers,V2,whole-home repipes,do you do whole-home repipes?,"Hi {{firstName}},
+
+Do you do whole-home repipes?
+
+{{sendingAccountFirstName}}",
+plumbers,V3,water main replacements,do you do water main replacements?,"Hi {{firstName}},
+
+Do you do water main replacements?
+
+{{sendingAccountFirstName}}",
+plumbers,V4,tankless water heater installs,do you do tankless water heater installs?,"Hi {{firstName}},
+
+Do you do tankless water heater installs?
+
+{{sendingAccountFirstName}}",
+plumbers,V5,sewer line replacements,do you do sewer line replacements?,"Hi {{firstName}},
+
+Do you do sewer line replacements?
+
+{{sendingAccountFirstName}} from Black Swan Media",signature control - identical to V1 but signed with the company
+hvac,V1,full system replacements,do you do full system replacements?,"Hi {{firstName}},
+
+Do you do full system replacements?
+
+{{sendingAccountFirstName}}",
+hvac,V2,AC replacements,do you do AC replacements?,"Hi {{firstName}},
+
+Do you do AC replacements?
+
+{{sendingAccountFirstName}}",
+hvac,V3,heat pump installs,do you do heat pump installs?,"Hi {{firstName}},
+
+Do you do heat pump installs?
+
+{{sendingAccountFirstName}}",
+hvac,V4,new ductwork,do you do new ductwork?,"Hi {{firstName}},
+
+Do you do new ductwork?
+
+{{sendingAccountFirstName}}",
+hvac,V5,mini split installs,do you do mini split installs?,"Hi {{firstName}},
+
+Do you do mini split installs?
+
+{{sendingAccountFirstName}}",
+electricians,V1,electrical panel upgrades,do you do electrical panel upgrades?,"Hi {{firstName}},
+
+Do you do electrical panel upgrades?
+
+{{sendingAccountFirstName}}",
+electricians,V2,whole-home rewires,do you do whole-home rewires?,"Hi {{firstName}},
+
+Do you do whole-home rewires?
+
+{{sendingAccountFirstName}}",
+electricians,V3,whole-house generator installs,do you do whole-house generator installs?,"Hi {{firstName}},
+
+Do you do whole-house generator installs?
+
+{{sendingAccountFirstName}}",
+electricians,V4,EV charger installs,do you do EV charger installs?,"Hi {{firstName}},
+
+Do you do EV charger installs?
+
+{{sendingAccountFirstName}}",
+electricians,V5,200 amp service upgrades,do you do 200 amp service upgrades?,"Hi {{firstName}},
+
+Do you do 200 amp service upgrades?
+
+{{sendingAccountFirstName}}",
