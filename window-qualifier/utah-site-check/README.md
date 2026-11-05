@@ -128,3 +128,27 @@ The window campaign also holds Utah window and glass companies that are not on
 this list at all — Jones Paint & Glass, Northern Utah Glass, Skyview Glass,
 SONIQ Windows and Doors, St George Windows, Siding Solutions & Construction,
 RGS Exteriors and Elevate Windows among them.
+
+## Email-level check of the Apollo contacts export
+
+`instantly_email_check.csv` checks the 12 contacts in the uploaded Apollo export
+(`people_list_window_installation_for_salt_lake_utah`) against Instantly.
+
+**9 of the 12 already exist**, all in the window installation campaign, all
+having finished the sequence with no reply: scott@ and allen@epicwd.com,
+alayton@ and bbernards@energyhomeimprovements.com, aland@valleyglass.com,
+fosterdp@pellamw.com, alex@thebrokeragewindows.com,
+matt@optimumsolargroup.com and erik.ostrom@elitewindowsut.com.
+
+**3 are new**, and only one of them is a clean Utah add:
+
+- `ely@legacywindowsinc.com` — Ely Lopez, Co-Owner, Legacy Windows LLC, Layton.
+  The company is on the qualified list and in no campaign. Its mailbox is on
+  legacywindowsinc.com while the website is thelegacywindows.com, which is why
+  a domain-only check missed it.
+- `nolan.francis@elitewindowsut.com` — a second contact at Elite Windows, where
+  Instantly holds only Erik Ostrom. He is based in Phoenix and titled Market
+  Owner, so he probably runs the Phoenix market rather than Utah.
+- `atlanta@synergywindow.com` — Synergy Windows **of Atlanta**, company address
+  Roswell, Georgia. Not the South Jordan, Utah Synergy Windows on the qualified
+  list, despite the shared domain and an 801 phone number on the record.
