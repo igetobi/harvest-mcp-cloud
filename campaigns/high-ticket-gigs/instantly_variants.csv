@@ -1,0 +1,126 @@
+niche,variant,gig,subject,first_email_body
+plumbers,V1,sewer line replacements,do you do sewer line replacements?,"Hi {{firstName}},
+
+Do you do sewer line replacements?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+plumbers,V2,whole-home repipes,do you do whole-home repipes?,"Hi {{firstName}},
+
+Do you do whole-home repipes?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+plumbers,V3,water main replacements,do you do water main replacements?,"Hi {{firstName}},
+
+Do you do water main replacements?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+plumbers,V4,tankless water heater installs,do you do tankless water heater installs?,"Hi {{firstName}},
+
+Do you do tankless water heater installs?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+plumbers,V5,trenchless sewer line replacements,do you do trenchless sewer line replacements?,"Hi {{firstName}},
+
+Do you do trenchless sewer line replacements?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+electricians,V1,electrical panel upgrades,do you do electrical panel upgrades?,"Hi {{firstName}},
+
+Do you do electrical panel upgrades?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+electricians,V2,whole-home rewires,do you do whole-home rewires?,"Hi {{firstName}},
+
+Do you do whole-home rewires?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+electricians,V3,whole-house generator installs,do you do whole-house generator installs?,"Hi {{firstName}},
+
+Do you do whole-house generator installs?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+electricians,V4,EV charger installs,do you do EV charger installs?,"Hi {{firstName}},
+
+Do you do EV charger installs?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+electricians,V5,200 amp service upgrades,do you do 200 amp service upgrades?,"Hi {{firstName}},
+
+Do you do 200 amp service upgrades?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+hvac,V1,full system replacements,do you do full system replacements?,"Hi {{firstName}},
+
+Do you do full system replacements?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+hvac,V2,AC replacements,do you do AC replacements?,"Hi {{firstName}},
+
+Do you do AC replacements?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+hvac,V3,heat pump installs,do you do heat pump installs?,"Hi {{firstName}},
+
+Do you do heat pump installs?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+hvac,V4,new ductwork,do you do new ductwork?,"Hi {{firstName}},
+
+Do you do new ductwork?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+hvac,V5,mini split installs,do you do mini split installs?,"Hi {{firstName}},
+
+Do you do mini split installs?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+pest control,V1,termite treatments,do you do termite treatments?,"Hi {{firstName}},
+
+Do you do termite treatments?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+pest control,V2,bed bug heat treatments,do you do bed bug heat treatments?,"Hi {{firstName}},
+
+Do you do bed bug heat treatments?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+pest control,V3,rodent exclusion,do you do rodent exclusion?,"Hi {{firstName}},
+
+Do you do rodent exclusion?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+pest control,V4,crawl space encapsulation,do you do crawl space encapsulation?,"Hi {{firstName}},
+
+Do you do crawl space encapsulation?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+pest control,V5,termite tenting,do you do termite tenting?,"Hi {{firstName}},
+
+Do you do termite tenting?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+window,V1,full home window replacements,do you do full home window replacements?,"Hi {{firstName}},
+
+Do you do full home window replacements?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+window,V2,sliding patio door replacements,do you do sliding patio door replacements?,"Hi {{firstName}},
+
+Do you do sliding patio door replacements?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+window,V3,bay window installs,do you do bay window installs?,"Hi {{firstName}},
+
+Do you do bay window installs?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+window,V4,hurricane impact windows,do you do hurricane impact windows?,"Hi {{firstName}},
+
+Do you do hurricane impact windows?
+
+{{sendingAccountFirstName}} from Black Swan Media"
+window,V5,egress window installs,do you do egress window installs?,"Hi {{firstName}},
+
+Do you do egress window installs?
+
+{{sendingAccountFirstName}} from Black Swan Media"
