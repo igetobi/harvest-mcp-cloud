@@ -80,3 +80,51 @@ block.
 
 Thirteen qualified companies publish no street address; their `street_address`
 says so, and `city`/`state` carry whatever the site or its contact page states.
+
+## Instantly overlap check
+
+`instantly_overlap.csv` records, for each of the 59 unique domains, whether a
+lead on that domain already exists in Instantly.
+
+**10 of the 59 are already in the "Window Installation Campaign (Performance
+based Campaign)"** (campaign `77b57a60-1291-4949-bb7e-722a780bb2a7`, status
+completed), covering 17 contacts. Every one of those contacts finished the
+sequence and none replied; the last send was 16 October 2026, except Mountain
+West Windows & Doors on 21 September.
+
+| company | domain | contacts |
+|---|---|---|
+| EPIC Windows & Doors | epicwd.com | 4 |
+| Energy Home Improvements | energyhomeimprovements.com | 3 |
+| Revival Windows | gorevivalwindows.com | 3 |
+| Advanced Window Products | advancedwindows.com → advancedwindowsusa.com | 1 |
+| Elite Windows | elitewindowsut.com | 1 |
+| Mountain West Windows & Doors | mwwd.com (email at pellamw.com) | 1 |
+| Optimum Windows & Doors | optimumwindowsanddoors.com (email at optimumsolargroup.com) | 1 |
+| Renewal by Andersen of Utah | renewalbyandersen.com → rbaslc.com | 1 |
+| The Brokerage Windows & Doors | thebrokeragewindows.com | 1 |
+| Valley Glass | valleyglass.com | 1 |
+
+The other **49 domains appear nowhere in Instantly** — not in a campaign and
+not in an unattached lead list.
+
+### How the check was run
+
+Two passes, because a search on the domain alone would have missed three of the
+ten. First, the whole 133-lead roster of the window campaign was pulled and
+matched locally on both `company_domain` and the `website` field, which is what
+caught Advanced Window Products (trading on advancedwindowsusa.com), Renewal by
+Andersen of Utah (rbaslc.com), Optimum (email at optimumsolargroup.com) and
+Mountain West (email at pellamw.com). Second, each of the 49 unmatched domains
+was searched across all campaigns and lead lists, and each came back empty.
+
+Two near-misses worth recording, since both would be wrong to count as hits:
+the campaign's "Pro Install" is a South African company (proinstall.co.za), not
+Pro Install LLC of Hurricane, Utah; and the "Window World" leads in Instantly
+are Window World **Austin**, sitting in the Texas lead list with no campaign
+attached, not Window World Utah.
+
+The window campaign also holds Utah window and glass companies that are not on
+this list at all — Jones Paint & Glass, Northern Utah Glass, Skyview Glass,
+SONIQ Windows and Doors, St George Windows, Siding Solutions & Construction,
+RGS Exteriors and Elevate Windows among them.
