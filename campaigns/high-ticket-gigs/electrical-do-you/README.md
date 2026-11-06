@@ -82,10 +82,14 @@ The Instantly API creates leads one at a time, so 1,834 rows would be 1,834
 calls. The UI importer takes the CSV in one pass and maps the columns, which is
 both faster and what the dedupe options are built for.
 
-## Activated
+## Activation, then paused back
 
-Turned on 6 Nov 2026 at 13:24 UTC. Campaign status went from 0 (draft) to
-1 (active). Final state at activation:
+Turned on 6 Nov 2026 at 13:24 UTC, then paused 34 seconds later at 13:24:47
+when the user said they wanted to switch it on themselves. Status is now 2
+(paused). **Nothing sent** -- the activation fell at 08:24 EST, before the
+09:00 window opened, and the campaign's sent-email list is empty.
+
+State as built, and as it will send once switched on:
 
 - 1,834 leads imported, every row carrying a non-blank `location`
 - 20 inboxes, daily limit 300, 9 min gap, up to 5 min random wait
