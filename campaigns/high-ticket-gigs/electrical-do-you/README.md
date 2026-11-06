@@ -71,8 +71,8 @@ Electrical campaign.
 The import file's `location` column is Company City, ready to map onto the
 campaign's existing `location` custom variable.
 
-**One lead is already in the campaign:** `mark@hawkeyeelectric.com`, added as a
-single API call to confirm the field shape and that `location` lands in the
+**One lead was already in the campaign:** a single row from this list, added by
+API to confirm the field shape and that `location` lands in the
 payload. It is a real row from this list. Instantly's importer dedupes on email,
 so re-importing the file is safe.
 
