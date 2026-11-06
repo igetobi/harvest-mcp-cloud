@@ -81,3 +81,35 @@ so re-importing the file is safe.
 The Instantly API creates leads one at a time, so 1,834 rows would be 1,834
 calls. The UI importer takes the CSV in one pass and maps the columns, which is
 both faster and what the dedupe options are built for.
+
+## Activated
+
+Turned on 6 Nov 2026 at 13:24 UTC. Campaign status went from 0 (draft) to
+1 (active). Final state at activation:
+
+- 1,834 leads imported, every row carrying a non-blank `location`
+- 20 inboxes, daily limit 300, 9 min gap, up to 5 min random wait
+- Schedule 09:00-17:00 Mon-Fri America/Detroit, start date 2026-11-06
+- Step delays 2 / 3 / 4 / 1 days, so sends land on day 0, 2, 5 and 9
+- First email text-only, no link or open tracking, stop on reply,
+  match lead ESP, auto variant select on reply rate
+
+Pre-flight on the import file before activating:
+
+```
+rows: 1834
+blank location: 0
+suspicious location values: 0
+longest city name: 21 -> Hillsborough Township
+```
+
+### Open items
+
+1. Step 3 reads "(we only get paid when you close the job)". The source doc
+   stops mid-word at "(we onl", so that closing is a reconstruction and still
+   needs Izzy's confirmation. It first sends on day 5, so there is time.
+2. `phoneNumber` imported empty on every lead even though 1,737 of the 1,834
+   rows carry a number. Harmless for email, but it is the exact field a
+   dialer would need. Re-import with Phone mapped to fix it.
+3. Not built: the generators-only and EV-chargers-only split that Izzy asked
+   about. Those would be variants 2 and 3 on step 1.
