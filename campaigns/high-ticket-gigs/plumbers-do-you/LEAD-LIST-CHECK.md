@@ -115,6 +115,30 @@ city at all, and Install Geothermal's contact sits in Chicago while the
 company is in Florida, so the person's city would have named the wrong
 market.
 
+## Company name column
+
+`Company Name` in the import comes from the sheet's **`Company Name for
+Emails`** column, not `Company Name`. Tobi's call, and it is the right one:
+727 of 1,641 rows (44%) differ, and the difference is the legal suffix and
+stray commas.
+
+| Company Name | Company Name for Emails |
+|---|---|
+| B & W MECHANICAL CONTRACTORS, INC. | B & W MECHANICAL CONTRACTORS |
+| Honest Air, LLC | Honest Air |
+| PLUMBING CARE, INC. | PLUMBING CARE |
+| King Heating, Cooling & Plumbing | King Heating Cooling & Plumbing |
+
+No row has it blank, so no fallback is ever used, though the builder keeps
+one. The HVAC/plumbing classifier still reads both columns, so the segment
+split is unchanged.
+
+Note that none of the four steps in the current copy actually merge
+`{{companyName}}` -- step 1 uses only `{{location}}`. So this changes
+nothing in what sends today. It matters for the human reply-pivot snippet,
+for any later copy that does use the company name, and for how the leads
+read in the Instantly UI.
+
 ## Files
 
 Built in the session scratchpad, not committed (they carry lead PII):
