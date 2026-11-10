@@ -55,13 +55,17 @@ contractor at all (a counselling practice).
 
 | Reason | Rows |
 |---|---|
-| Company City blank (would send "...replacements in ?") | 9 |
 | duplicate email | 3 |
 | company not in the US | 1 |
-| **total dropped** | **13** |
+| **total dropped** | **4** |
 
-**1,628 rows ready**, every one with a non-blank `location`. 1,537 of them
-(94%) carry a phone number.
+The 9 rows with a blank Company City were originally dropped too. They are
+now kept, with `location` filled from a fallback -- see below.
+
+**1,637 rows ready**, every one with a non-blank `location` -- the 9 blank
+cities were recovered rather than dropped, see below. 1,546 of them (94%)
+carry a phone number. Final segment split: 1,040 plumbing, 493 HVAC-only,
+104 unclear.
 
 ## Two other things worth a decision
 
@@ -79,15 +83,48 @@ lists gets a very different second approach from the same address. The
 Instantly leads endpoint rate-limited and then 502'd partway through
 paging that campaign's roster, so this check is still outstanding.
 
+## Decision: send to everything
+
+Tobi's call, 10 Nov: run the whole list including HVAC rather than cut to
+the 1,035 plumbing rows, to see what the HVAC segment actually replies.
+The `segment` column tags every row plumbing / hvac-only / unclear, so
+reply rate can be split by segment afterwards and the question answered
+with data instead of a guess.
+
+## The 9 blank cities, filled
+
+Rather than drop them, `location` falls back in this order: Company City,
+then the person's City **when the person's State matches the company's**
+(so their city is plausibly the service area), then Company State.
+
+| Company | Filled with | From |
+|---|---|---|
+| ResiXperts | San Antonio | person city |
+| American Energy Supply - FuelOilNow.com | Philadelphia | person city |
+| Mark Lindsay and Son Plumbing and Heating | New Jersey | company state |
+| Northeast Water Wells | Peterborough | person city |
+| RBE Inc | Clawson | person city |
+| Install Geothermal | Florida | company state |
+| Four Quarters Mechanical | Moorestown | person city |
+| Custom Critical Cooling | Dallas | person city |
+| Northeast Water Wells | Hudson | person city |
+
+Seven get a real city, which reads far better in the one-line question
+than a state does. Two fall back to the state: Mark Lindsay has no person
+city at all, and Install Geothermal's contact sits in Chicago while the
+company is in Florida, so the person's city would have named the wrong
+market.
+
 ## Files
 
 Built in the session scratchpad, not committed (they carry lead PII):
 
-- `instantly_import_all.csv` -- 1,628 rows, `segment` column tags each row
-  plumbing / hvac-only / unclear
-- `instantly_import_plumbing_only.csv` -- 1,035 rows, HVAC-only and
-  unclear removed
-- `excluded_hvac_only.csv` -- the 491 HVAC-only rows, for review
+- `instantly_import_FINAL_1637.csv` -- **the one to import.** 1,637 rows,
+  zero blank locations, `segment` column included
+- `instantly_import_all.csv` -- earlier 1,628-row version, before the 9
+  blank cities were recovered
+- `instantly_import_plumbing_only.csv` -- 1,035 rows, HVAC removed
+- `excluded_hvac_only.csv` -- the 491 HVAC-only rows
 
 Column order matches what the Instantly importer expects, with
 `phoneNumber` named explicitly so the mapping is not missed the way it was
