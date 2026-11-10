@@ -1,8 +1,14 @@
 # Plumbers - Do You Campaign
 
-Instantly campaign `3184f23c-f8d4-4978-abc5-06b21afa61fe`, created
+Instantly campaign `3c29a2f8-073f-4a2e-85be-6e69f2392077`, created
 10 Nov 2026, **status 0 (draft)**. Copy is Izzy's edit of the plumbers tab
 in the shared plan doc, settings cloned from the electrical do-you campaign.
+
+An earlier draft, `3184f23c-f8d4-4978-abc5-06b21afa61fe`, carried the same
+copy on 10 mailboxes. It was replaced rather than edited because changing
+`email_list` needs PATCH, which this integration does not expose, and it
+held no leads. **Delete it in the UI** -- the keeper is the one with 16
+mailboxes.
 
 ## Izzy's edits to the plumbers copy
 
@@ -46,8 +52,8 @@ Cloned from `d2423d95` (electrical do-you):
 | Schedule | 09:00-17:00 Mon-Fri America/Detroit |
 | Start date | 2026-11-11 |
 | Step delays | 2 / 3 / 4 / 1 days -> sends land day 0, 2, 5, 9 |
-| Mailboxes | 10 |
-| Daily limit | 150 |
+| Mailboxes | 16 |
+| Daily limit | 240 |
 | Email gap | 9 min, up to 5 min random wait |
 | First email text only | yes |
 | Open tracking | off |
@@ -57,9 +63,9 @@ Cloned from `d2423d95` (electrical do-you):
 
 Two deliberate differences from electrical:
 
-1. **Daily limit is 150, not 300.** Every mailbox in the workspace is capped
-   at 15/day. Electrical gets 300 because it has 20 mailboxes. This has 10,
-   so 150 is the real ceiling and setting 300 would be a number that cannot
+1. **Daily limit is 240, not 300.** Every mailbox in the workspace is capped
+   at 15/day. Electrical gets 300 because it has 20 mailboxes. This has 16,
+   so 240 is the real ceiling and setting 300 would be a number that cannot
    happen.
 2. **Step delays follow the live electrical campaign, not the doc.** The doc
    says day 0/3/5/9; the campaign the user edited uses day 0/2/5/9.
@@ -71,23 +77,41 @@ but it is worth an eye in the UI.
 
 ## Mailboxes
 
-Every one of the 44 mailboxes in the workspace is already attached to a
-campaign, so "free" means "attached to a campaign that is not sending".
+16 assigned. Every one of the 44 mailboxes in the workspace is attached to
+some campaign, so "free" means "attached to a campaign that is not sending".
 
-| Mailboxes | Campaign | Status | Usable |
+| Mailboxes | Taken from | That campaign's status | On this campaign |
 |---|---|---|---|
-| 10 Ashley (marketing.co, mediaco.com, mediamarketing.com, medias.co, tactics.com) | Plumbers (old) | 3, completed | **yes - assigned to this campaign** |
-| 8 Allison (media.io, mediateam.com, outreach.com, systems.co) | Window Installation | 3, completed | contested, see below |
-| 11 Allison | Electrical Contractors | 2, paused | only if that stays paused |
-| 3 Ashley (leads, web, local) | Pest Control | 0, draft | yes, if Pest Control is not launching |
-| 20 Julie/Heather | Electrical - Do You | 1, **active** | no |
+| 10 Ashley (marketing.co, mediaco.com, mediamarketing.com, medias.co, tactics.com) | Plumbers (old) | 3, completed | yes |
+| 3 Ashley (leads, web, local) | Pest Control | 0, draft | yes |
+| 3 Allison (leads, web, local) | Electrical Contractors | 2, paused | yes |
+| 8 Allison (media.io, mediateam.com, outreach.com, systems.co) | Electrical Contractors **and** Window Installation | 2 / 3 | **no, left alone** |
+| 20 Julie/Heather | Electrical - Do You | 1, active | no |
 
-The 10 Ashley mailboxes are the right pick: that campaign is finished, the
-persona already signs as Ashley, and these addresses have real plumber
-sending history rather than being cold.
+The 8 Allison mailboxes that Electrical Contractors shares with Window
+Installation were deliberately left where they are.
 
-The 8 Window mailboxes look free but are a subset of the 11 on the paused
-Electrical Contractors campaign -- resuming it would put them back in use.
+### Removing them from the old campaigns
+
+Not done, and not doable from here: campaign updates are `PATCH
+/api/v2/campaigns/{id}`, and this integration accepts GET and POST only.
+`POST /campaigns/{id}` returns 404.
+
+**It does not block anything.** A mailbox can sit on several campaigns at
+once, and the 15/day cap is per mailbox, shared across whatever is actually
+sending. Pest Control is a draft and Electrical Contractors is paused, so
+neither consumes any part of those 6 mailboxes' allowance. This campaign
+gets its full 240/day either way. The removal only matters if one of those
+two is ever resumed, at which point they would start competing.
+
+Two things to weigh before doing it in the UI:
+
+- Electrical Contractors has ~1,016 leads mid-sequence (1,640 leads, 1,140
+  contacted, 124 completed). They got step 1 from those Allison addresses.
+  Removing the addresses and later resuming means their follow-ups arrive
+  from a different sender and the thread breaks.
+- Pest Control would be left with no mailboxes at all and could not launch
+  until some were reassigned.
 
 ### Overlap risk
 
