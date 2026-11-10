@@ -1,6 +1,6 @@
 allison@blackswanleads.com
 allison@blackswanweb.com
-allison@blackswanlocal.com
+allison@blackswanlocal.com   # DEAD - EAUTH, see dead-accounts.md
 allison@blackswanmedia.io
 allison.moore@blackswanmedia.io
 allison@blackswansystems.co
