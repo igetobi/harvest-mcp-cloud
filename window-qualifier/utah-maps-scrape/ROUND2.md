@@ -146,3 +146,21 @@ nothing is lost.
 
 A `Domain` column carries the bare hostname for each company, ready for
 an enrichment tool to take as input.
+
+## Past clients excluded
+
+**Solara** (`solara.build`) removed -- an existing Black Swan client.
+Searching both the 1,007-row upload and the earlier 667-row sheet for
+"solbuild", "sol build" and "solara" returns that one row only; the
+`.build` domain is most likely why the company comes to mind under both
+names. Final list is **236 companies**.
+
+**Left in, deliberately: `Solar Window & Door Inc` (`solarwindowutah.com`).**
+It matches on the letters "sol" but is a separate Utah business, not
+Solara. Say the word if it should come out too.
+
+The exclusion list lives in `window-qualifier/past-clients.py` and matches
+on bare domain first, then company name. It holds one entry today. **Send
+the full client roster and it will be applied to this list and every
+future one** -- a client landing in a cold campaign is the one error here
+that costs a relationship rather than a send.
