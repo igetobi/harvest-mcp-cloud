@@ -96,3 +96,53 @@ unchanged: 284 companies with a website to enrich against.
 `utah_windows_VERIFIED_550.csv` in the session scratchpad, sorted YES
 first, each row carrying its verdict, the evidence, how geography was
 established and whether the site is a real domain or a page builder.
+
+## Final cut: verified and good only
+
+From the 279 YES, three further removals and a dedupe:
+
+| Step | Rows |
+|---|---|
+| YES after the website checks | 279 |
+| less national franchise branches | -11 |
+| less pet-door and door-only shops | -3 |
+| less duplicate branch rows, merged into one row per company | -28 |
+| **FINAL** | **237 companies** |
+
+### Why the franchises came out
+
+Window World Utah, Marvin Design Gallery, Pella of Utah, West Shore Home,
+Champion, Renewal by Andersen and DaBella are real window companies, but
+they are corporate branches. Lead generation is bought centrally, and
+there is no local owner to pitch -- the same reason Home Depot was cut
+earlier. They are in `national_franchises.csv` rather than deleted, in
+case the pitch ever suits them.
+
+### Why three more came out
+
+**Utah Pet Access**, **Salt City Pet Doors** and **Capital Door Shop**
+are all filed by Google under "Window installation service" and are not
+window companies. Utah Pet Access had 538 reviews and was sitting seventh
+in the list, so category alone would have let it through.
+
+### The dedupe
+
+Twenty-eight rows were extra branches of a company already in the list --
+Valley Glass has four, Jones Paint & Glass four, Epic Windows + Doors and
+Burton Lumber three each. One row per company now, keeping the branch with
+the most reviews, and an `Other branches` column naming the rest so
+nothing is lost.
+
+### What the 237 look like
+
+| | |
+|---|---|
+| With a street address | 152 |
+| Service-area businesses, no street address | 85 |
+| With a phone number | 232 |
+| On their own domain | 234 |
+| On a no-code site builder | 3 |
+| Have other branches | 22 |
+
+A `Domain` column carries the bare hostname for each company, ready for
+an enrichment tool to take as input.
