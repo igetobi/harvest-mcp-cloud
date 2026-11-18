@@ -136,3 +136,63 @@ add ~100 contacts back.
 - `pest_TARGETED.csv` -- 1,129 contacts, `Target group` column, sorted
   owner/president first then sales
 - `pest_TARGETED_one_per_company.csv` -- 620 rows, best contact per company
+
+## Import-ready files: company name and location
+
+Two columns added at the front, `companyName` and `location`, so the file
+can go straight into a campaign.
+
+### companyName
+
+Hunter's `Organization` field, cleaned so it reads naturally mid-sentence.
+**49 of 1,129 changed**, the rest were already fine:
+
+| Before | After |
+|---|---|
+| Patriot Pest Management - Pace, FL | Patriot Pest Management |
+| Harris Pest Control, Inc. | Harris Pest Control |
+| Hamtramck Pest Control LLC. | Hamtramck Pest Control |
+| Rid-A-Bug Exterminating Co. Inc. | Rid-A-Bug Exterminating |
+| ROADRUNNER EXTERMINATING | Roadrunner Exterminating |
+| Home Inspectors Greenville, NC | Home Inspectors Greenville |
+
+Rules: strip a trailing legal suffix (Inc, LLC, Ltd, Corp, PLLC, Co), strip
+a trailing city/state or tagline after a spaced dash or pipe, and title-case
+names shouted in full capitals.
+
+Two bugs were caught and fixed before this shipped:
+
+1. The tagline rule first allowed an unspaced hyphen, which truncated
+   **A-1 Exterminators to "A"**, Nu-Tech to "Nu", Yates-Astro to "Yates"
+   and Bug-A-Salt to "Bug-A". The separator now has to have spaces around
+   it.
+2. Title-casing turned the acronyms **MMPC into "Mmpc"** and HDMK into
+   "Hdmk". Single-word capitalised names of five characters or fewer are
+   now left alone, so MMPC and HDMK keep their form while MOLECAT and
+   ROADRUNNER are still fixed.
+
+Nothing is blank, and no name was shortened to something that is not a
+real company name.
+
+### location
+
+Zero blanks across 1,129 rows. Filled in this order:
+
+| Source | Rows |
+|---|---|
+| Hunter's City | 1,065 |
+| Apollo's Company City, joined on domain | 58 |
+| State name as the fallback | 6 |
+
+A `location source` column records which was used for each row, so the six
+state rows can be spotted and swapped for a real city later. They are
+Hoffman's Exterminating (New Jersey, 4 contacts), Above & Beyond Pest
+Control (Florida) and The Pest Rangers (Pennsylvania).
+
+States are written in full -- "New Jersey", not "NJ" -- so the line reads
+"...in New Jersey?" rather than "...in NJ?". No two-letter codes remain.
+
+### Files
+
+- `pest_IMPORT_1129.csv` -- all 1,129 targeted contacts
+- `pest_IMPORT_one_per_company.csv` -- 620 rows, one per company
