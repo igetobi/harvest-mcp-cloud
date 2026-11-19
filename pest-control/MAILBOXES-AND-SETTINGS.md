@@ -137,3 +137,38 @@ it is paused, and stripping them would break sender continuity for its
 ~1,016 mid-sequence leads if it is ever resumed. The only thing to avoid
 is resuming Electrical Contractors while pest control is running, which
 would have both campaigns drawing on the same ten mailboxes.
+
+## Live
+
+Activated 19 Nov 2026, 12:43 UTC. Final state:
+
+| | |
+|---|---|
+| Status | 1, active |
+| Mailboxes | 12 |
+| Daily limit | 180 |
+| Start date | 2026-11-19 |
+| Schedule | 09:00-17:00 Mon-Fri America/Detroit |
+| Step delays | 2 / 3 / 4 / 1 -> sends land day 0, 2, 5, 9 |
+| Leads | 1,129, zero blank `location` or `companyName`, `website` on every row |
+| Step 1 | two variants, auto variant select on reply rate |
+
+Nothing had sent at the time of the check: activation fell at 07:43 EST,
+before the 09:00 window opens.
+
+### Watch list
+
+1. **Day 2 new-lead count.** The daily limit is shared across all four
+   steps. On the electrical campaign day 1 was 300 new leads and day 2 was
+   300 sends but only **14** new. Expect the same shape here: ~180 on day
+   one, then roughly 45 new a day once follow-ups are in flight, so about
+   five weeks for step 1 rather than seven days.
+2. **Do not resume Electrical Contractors or Plumbers - Do You** while
+   this runs. All ten Allison accounts are still attached to Electrical
+   Contractors, and `allison@blackswanleads.com` and
+   `allison@blackswanweb.com` are also on Plumbers - Do You. Resuming
+   either splits the same mailboxes two ways.
+3. **509 of the 1,129 are second or third contacts at a company already
+   being emailed.** `stop_for_company` is false, so a reply from one does
+   not stop the others. Worth turning on, or pruning to the 620
+   one-per-company set.
