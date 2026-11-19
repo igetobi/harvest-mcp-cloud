@@ -86,3 +86,54 @@ re-import registered it, and `location` and `phoneNumber` under custom
 variables. `phoneNumber` is empty on every lead, since Hunter only
 returned a phone for 6% of contacts and the import file carried no phone
 column.
+
+## Decision: 12 mailboxes
+
+Tobi's call, 19 Nov: the 10 Allison accounts from the paused Electrical
+Contractors campaign plus the 2 free `blackswanlocal.com` accounts.
+**180/day**, roughly seven working days to clear step 1 on 1,129 leads.
+
+```
+allison@blackswanleads.com
+allison@blackswanweb.com
+allison@blackswanmedia.io
+allison.moore@blackswanmedia.io
+allison@blackswansystems.co
+allison.moore@blackswansystems.co
+allison@blackswanoutreach.com
+allison.moore@blackswanoutreach.com
+allison@blackswanmediateam.com
+allison.moore@blackswanmediateam.com
+allison@blackswanlocal.com
+ashley@blackswanlocal.com
+```
+
+**Has to be done in the UI.** Setting `email_list` on an existing campaign
+is `PATCH /api/v2/campaigns/{id}`, which this integration does not expose;
+`POST /campaigns/{id}` and `POST /campaigns/{id}/accounts` both return 404.
+Rebuilding the campaign would carry the mailboxes at creation but would
+also discard the 1,129 leads already imported, so pasting the list is both
+quicker and safer.
+
+Set at the same time, on the same screen:
+
+| Field | To |
+|---|---|
+| Daily limit | **180** (12 x 15) |
+| Start date | **the launch day** — currently 2026-10-19, a month past |
+
+### Two of the twelve are shared with a second paused campaign
+
+`allison@blackswanleads.com` and `allison@blackswanweb.com` sit on
+**Plumbers - Do You** as well as Electrical Contractors. Harmless while
+both stay paused, but if Plumbers - Do You is resumed those two split
+their 15/day between the campaigns and pest control's real ceiling drops
+to about 165.
+
+### Electrical Contractors is not changed
+
+The 10 Allison accounts stay attached to it. Nothing needs removing while
+it is paused, and stripping them would break sender continuity for its
+~1,016 mid-sequence leads if it is ever resumed. The only thing to avoid
+is resuming Electrical Contractors while pest control is running, which
+would have both campaigns drawing on the same ten mailboxes.
