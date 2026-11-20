@@ -73,3 +73,65 @@ In the session scratchpad:
   every source it came from, and the reason for any exclusion
 - `utah_window_domains_GOOD.csv` — the 240 worth contacting
 - `utah_window_domains_GOOD.txt` — those 240 as a plain domain list
+
+## What Apollo did with all 512
+
+The full 512 went to Apollo on 20 Nov, not the 240 contactable subset.
+Apollo returned **222 companies**. Only **76 are usable**.
+
+| | Rows |
+|---|---|
+| Apollo returned | 222 |
+| **Keep** — our YES / weak / Instantly-only, and Apollo agrees it is Utah | **76** |
+| Drop | 146 |
+
+The 146 break down as:
+
+| Reason | Rows |
+|---|---|
+| **We had already marked it NO** | 90 |
+| Not one of our 512 at all | 9 |
+| National franchise we split out | 7 |
+| Already marked NOT UTAH | 6 |
+| Already removed (manufacturers, pet doors) | 6 |
+| Apollo mis-match we had identified | 5 |
+| Unreachable site | 3 |
+| Our YES, but Apollo places it out of state | 20 |
+
+**90 of the 222 are window cleaners, tinting shops, blind sellers and auto
+glass firms** that were classified and rejected weeks ago. Sending the
+whole 512 bought their Apollo records back at full price.
+
+### Apollo also returned nine companies that were never on the list
+
+| Apollo returned | Where |
+|---|---|
+| **Squarespace** | New York |
+| **United States Air Force** (`af.mil`) | Texas |
+| **Linktree** | Melbourne |
+| **Bath Fitter** | Quebec |
+| Lansing Building Products | Virginia |
+| Relentless Windows & Doors | Gilbert, Arizona |
+| Intermountain Martin Doors | Payson, Utah |
+| Right Choice Garage Doors | Layton, Utah |
+| Stan Barlow Construction | Spanish Fork, Utah |
+
+The first four come from the site-builder and link-aggregator domains in
+the list: `dripwindowcleaning.squarespace.com` resolves to Squarespace,
+`linktr.ee` to Linktree. It is the same failure that returned two Indian
+companies on the pest control run, and the reason those rows carry a
+`Site type` flag.
+
+### Credits
+
+2,547 of 2,570 consumed this cycle, **23 left**, resetting 3 Dec. Direct
+dials are at 482.
+
+Had the 240 contactable domains gone instead of all 512, the same ~76
+useful records would have come back: every one of them is in that subset.
+
+## Files
+
+- `apollo_KEEP.csv` — the 76 worth keeping, with Apollo's phone, headcount,
+  city and industry
+- `apollo_DROP.csv` — the 146, each with the reason
