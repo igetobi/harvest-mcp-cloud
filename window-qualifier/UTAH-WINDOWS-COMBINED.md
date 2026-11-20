@@ -13,18 +13,18 @@ sources, with each domain graded by whether Apollo can actually resolve it. Buil
 | Instantly Window Installation campaign | 9 Utah companies found nowhere else |
 | Apollo 94-row enrichment | phone/contact data |
 | Apollo 512-domain run | 222 returned, 76 good |
-| Apollo 595-row keyword run | 75 new, 13 good |
+| Apollo 595-row keyword run | 75 new, 13 good by fetch + 5 confirmed by hand |
 
-**253 distinct companies after dedupe on domain.**
+**258 distinct companies after dedupe on domain.**
 
 ## Apollo resolution grades
 
 | Grade | Count | Meaning |
 |---|---|---|
-| Apollo confirmed | 89 | Apollo holds this domain and places the company in Utah. Safe to enrich. |
+| Apollo confirmed | 94 | Apollo holds this domain and places the company in Utah. Safe to enrich. |
 | Apollo finds wrong org | 20 | Apollo holds the domain but returns an out-of-state parent. |
 | Apollo missed | 144 | Submitted in the 512 run; Apollo returned nothing. |
-| **Total** | **253** | |
+| **Total** | **258** | |
 
 ## The franchise trap
 
@@ -57,6 +57,32 @@ local and should not go into a Utah campaign without checking.
 | unitedporte.us | "United Porte Inc." in New Jersey |
 | windowdepotusa.com | "Window Depot USA" in Ohio |
 
+## Alias domains
+
+One company reaches us under two domains. `wholesalewindowinc.com`, which Apollo
+lists as "Wholesale Windows & Doors" in Orem, redirects to `utwindowexperts.com`,
+which we already held as Utah Window Experts in Orem. Both carry the phone
+(801) 221-1244. It is one business, counted once, with the second domain recorded
+in the `Also reachable at` column.
+
+This is worth watching for on every Apollo run: Apollo keeps separate company
+records for a business's old and new domains, so a domain-level dedupe will not
+catch it. Matching on phone number does.
+
+## Hand checks
+
+Five companies whose sites could not be read automatically were confirmed by hand
+and are now in the confirmed set: P3 Windows and Doors (now trading as Viewpoint
+Utah, Park City), TNT Industries (Cedar City), Vinyl Guys (Saint George), Jim
+Carver & Sons (Ogden) and Utah Discount Windows & Doors (Sandy).
+
+Note on Jim Carver & Sons: Apollo places it in Ogden but the phone it holds is a
+513 area code, which is Ohio. Worth confirming a local number before dialling.
+
+Six remain unresolved, all of them sites that block or fail automated reads:
+windowsogden.com, novaglass.net, qualityhardwareandglass.com, biofireinc.com,
+designstoneworks.com and revision-ut.com.
+
 ## The 144 Apollo missed
 
 These were all submitted in the 512-domain run and came back empty. They are real
@@ -72,9 +98,9 @@ hold from Google Maps are the better asset for this group.
 | File | Contents |
 |---|---|
 | `utah_window_companies_COMBINED.csv` | all 253, with company, city, phone, Apollo grade |
-| `utah_window_domains_FOR_APOLLO.txt` | the 89 confirmed domains, one per line |
+| `utah_window_domains_FOR_APOLLO.txt` 
 | `utah_window_domains_FRANCHISE_CAUTION.txt` | the 20 franchise domains |
 | `utah_window_domains_APOLLO_MISSED.txt` | the 144 Apollo has no record of |
-| `utah_window_domains_ALL_253.txt` | every domain, one per line |
+| `utah_window_domains_ALL.txt` | every domain, one per line |
 
 Phone numbers live in the CSVs only, not in this repo.
