@@ -113,3 +113,39 @@ website check — which is what the whole Utah exercise was.
 That is the honest limit here: Apollo is good for enriching a list you
 already have, and partial for building one. A keyword search will not
 reproduce the 240.
+
+## Keyword sets scored for precision as well as recall
+
+Scored against **96 verified window companies** and **115 companies we
+rejected** that also have Apollo records — cleaners, tinting shops, blind
+sellers, auto glass, window wells, door-only shops.
+
+| Keyword set | Good caught | Junk pulled | Precision |
+|---|---|---|---|
+| Your current 2 terms | 20 / 96 | 11 | 64% |
+| Zero-junk terms only (47) | 28 / 96 | 0 | **100%** |
+| **Recommended (62)** | **43 / 96** | 18 | **70%** |
+
+The 62-term set is strictly better than what is in place now: it catches
+**more than twice as many** real companies (43 against 20) at a **better**
+junk ratio (70% against 64%).
+
+The high-volume window phrases are all shared with the trades we do not
+want. `window replacement` sits on 14 good companies and 7 rejected ones;
+`windows` on 11 good and 9 rejected. Window cleaners and blind sellers use
+the same words, so there is no way to take the volume without some of
+them. The glass-specific phrases are the clean ones: `glass railings`,
+`commercial glass`, `frameless glass` and the like appear on zero rejected
+companies.
+
+Of the 18 junk hits in the recommended set, 4 are only out-of-state
+(New York, Arizona, Oregon), which the Utah location filter removes
+anyway. Real in-Utah noise is about 14 — mostly auto glass filed by Google
+under "Window installation service".
+
+## On keeping employees at 1-100
+
+Noted, and it is defensible — a 750-person company is not a performance
+lead-gen prospect. The cost is 9 of the 96: Sunpro 750, Christensen 500,
+Burton Lumber 350, Jones Paint & Glass 180, AMSCO 160 and four more. All
+large, all arguably out of profile.
