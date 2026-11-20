@@ -149,3 +149,70 @@ Noted, and it is defensible — a 750-person company is not a performance
 lead-gen prospect. The cost is 9 of the 96: Sunpro 750, Christensen 500,
 Burton Lumber 350, Jones Paint & Glass 180, AMSCO 160 and four more. All
 large, all arguably out of profile.
+
+## The recommended keywords run against all of Utah: a correction
+
+Run with Utah + Salt Lake City, employees 1-100, the 62 keywords. Apollo
+returned **595**. Classifying them:
+
+| | Rows |
+|---|---|
+| Already verified good in our 512 | 54 |
+| Plausible, new | 170 |
+| **Rejected** | **371** |
+
+Signal is **37%**, not the 70% precision my earlier test predicted.
+
+**The test was biased and I should have caught it.** Precision was measured
+against 115 rejected companies drawn from the window scrapes — cleaners,
+tinting, auto glass, window wells. Those are window-*adjacent* businesses.
+The real Utah population also contains IT firms, universities, music
+venues and cosmetics companies, none of which could appear in that
+control. So the 70% figure described how the keywords behaved among
+window-like companies, not among all companies, which is the question that
+actually matters when running a search.
+
+What came through: 131 tech/marketing/consulting, 110 window cleaning,
+74 automotive glass, 32 coverings, 7 window graphics.
+
+### The specific offenders
+
+| Keyword | Junk rows it pulled |
+|---|---|
+| `window cleaning` variants | 63 + 22 washing + 20 more |
+| **`windows`** | 19 — matches **Microsoft Windows**: Windows server, Windows phone, Windows security |
+| **`glass`** | 9 — matches glass recycling, glassware, fibreglass, "glass ceiling" |
+| `window graphics` | 11 |
+| `auto glass` variants | 24 |
+
+`windows` and `glass` on their own are the two to delete. They were in the
+list because they scored well on the biased control; against the whole
+population they are the worst terms in it.
+
+## The fix: add an Industry filter
+
+This matters more than any keyword change:
+
+| Filter | Rows | Signal | Verified-good kept |
+|---|---|---|---|
+| Keywords only | 595 | 37% | 54 of 54 |
+| **+ Industry: construction, building materials, glass/ceramics/concrete** | **153** | **78%** | **45 of 54** |
+| + consumer services, facilities, wholesale, retail, mech eng | 293 | 46% | 46 of 54 |
+
+The three-industry filter more than doubles signal and still keeps 45 of
+the 54 known-good. It is the single most effective control available,
+because the junk categories — IT, education, marketing, automotive — are
+all in different industries, and no keyword list can separate them.
+
+### Recommended search
+
+- Account Location: Utah
+- Employees: 1-10, 11-20, 21-50, 51-100
+- **Industry: Construction, Building Materials, Glass Ceramics & Concrete**
+- Keywords: the 62-term list **minus `windows` and `glass`**
+
+### Files
+
+- `apollo595_SHORTLIST.csv` — the 120 that survive the industry filter
+- `apollo595_SHORTLIST_new_only.csv` — those not already in our 512
+- `apollo595_all_scored.csv` — all 595 with a verdict and reason
